@@ -1,0 +1,67 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --black-50: rgba(19, 28, 22, 0.08);
+  --black-100: rgba(19, 28, 22, 0.2);
+  --black-200: rgba(19, 28, 22, 0.5);
+  --black-300: #d3d3d8;
+  --black-400: #e9e9ec;
+  --black-500: #131c16;
+
+  --yellow-50: #f1eee8;
+  --yellow-100: #f1c30c;
+  --yellow-200: #fdf6e2;
+  --yellow-300: #fffefa;
+
+  --white-100: #ffffff;
+
+  --grey-100: #ededed;
+
+  --red-100: #fa4a0c;
+  --100vh: 100vh;
+}
+
+/* Toast container  */
+.Toastify__toast-container {
+  max-width: 80%;
+  left: 100%;
+  transform: translateX(-100%);
+  padding: 10px;
+  border-radius: 8px;
+}
+.Toastify__toast {
+  border-radius: 2px;
+}
+
+@layer utilities {
+  @media (max-width: 960px) {
+    ::-webkit-scrollbar {
+      display: none;
+      -ms-overflow-style: none; /* IE and Edge */
+      scrollbar-width: none; /* Firefox */
+    }
+  }
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #a7a7a7;
+  border-radius: 8px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #858585;
+}
