@@ -11,7 +11,7 @@ interface CountButtonProps extends ButtonProps {
 
 const CountButton: FC<CountButtonProps> = ({ plus = true, variant = 'primary', className, ...restProps }) => {
   const iconColor = variant === 'primary' ? '#131C16' : '#fff';
-  const buttonColor = variant === 'primary' ? '#F1EEE8' : '#131C16';
+  const buttonColor = variant === 'primary' ? '#ededed' : '#131C16';
   const borderStyle = 'border border-solid border-black-100';
   const iconStyle = { color: iconColor, fontSize: '10px', margin: '0px' };
   const buttonStyle = { backgroundColor: buttonColor };

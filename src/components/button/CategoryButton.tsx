@@ -18,23 +18,21 @@ const CategoryButton: FC<CategoryButtonProps> = ({ children, className, active, 
             borderRadius: 16,
             fontSize: 16,
             colorPrimaryHover: 'none',
-            defaultBorderColor: 'rgba(19, 28, 22, 0.20)',
             defaultGhostBorderColor: 'none',
           },
         },
         token: {
           colorPrimaryActive: 'RGBA(19, 28, 22, 0.2)',
-          colorBorder: 'RGBA(19, 28, 22, 0.2)',
         },
       }}
     >
-      <ButtonElement
+      <div
         style={{ fontFamily: 'var(--font-rubik)' }}
         {...restProps}
-        className={`${className || ''} ${active ? styles.active : styles.inActive} ${styles.categoryButton}`}
+        className={`${className || ''} ${active ? styles.active : styles.inActive} ${styles.categoryButton} w-[100px]`}
       >
         {children}
-      </ButtonElement>
+      </div>
     </ConfigProvider>
   );
 };
