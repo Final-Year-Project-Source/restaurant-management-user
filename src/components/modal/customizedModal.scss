@@ -2,7 +2,7 @@
   max-width: calc(100vw - 48px) !important;
   & > .ant-modal-content {
     border-radius: 16px !important;
-    background-color: #f1eee8 !important;
+    background-color: var(--white-100) !important;
     padding: 24px !important;
 
     & > .ant-modal-close {
@@ -22,7 +22,7 @@
       margin-bottom: 30px;
       .ant-modal-title {
         color: #131c16;
-        background: #f1eee8;
+        background: var(--white-100);
         line-height: normal;
         padding-top: 26px;
         text-align: center;

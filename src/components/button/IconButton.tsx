@@ -10,7 +10,7 @@ const IconButton: FC<IconButtonProps> = ({ icon, className, ...restProps }) => {
     <button
       className={`${
         className || ''
-      } flex justify-center items-center border border-solid border-black-100 bg-yellow-50 rounded-2xl p-1.5 shadow-none size-12`}
+      } flex justify-center items-center border border-solid border-black-100 bg-white-100 rounded-2xl p-1.5 shadow-none size-12`}
       {...restProps}
     >
       {icon}

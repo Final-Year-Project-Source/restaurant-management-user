@@ -1,0 +1,18 @@
+.ant-input-outlined,
+.ant-input {
+  &:hover {
+    border-color: rgba(19, 28, 22, 0.2) !important;
+  }
+  &:focus {
+    border-color: rgba(19, 28, 22, 1) !important;
+  }
+}
+
+.search-input-container {
+  &--focus {
+    &:hover {
+      border-color: rgba(19, 28, 22, 1) !important;
+    }
+    border-color: rgba(19, 28, 22, 1) !important;
+  }
+}
