@@ -25,3 +25,27 @@ export const getDietaryRequests = (dietaryRequests: string[]) => {
 
 export const getFormattedTime = (date: Date) =>
   date ? `${date.getHours()}:${date.getMinutes() < 10 ? '0' : ''}${date.getMinutes()}` : '';
+
+export const validateEmail = (email: string) => {
+  if (email.trim() === '') {
+    return true;
+  }
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  return emailRegex.test(email);
+};
+
+export const validatePhoneNumber = (phoneNumber: string) => {
+  if (phoneNumber.trim() === '') {
+    return true;
+  }
+  const phoneRegex = /^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/im;
+  return phoneRegex.test(phoneNumber);
+};
+export const validateTaxID = (taxID: string) => {
+  const taxIDRegex = /^(\d[- ]?){12}\d$/;
+
+  return taxIDRegex.test(taxID);
+};
+export const validateIsNotEmpty = (value: string) => {
+  return value.trim() !== '';
+};
