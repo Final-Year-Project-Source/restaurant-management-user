@@ -9,6 +9,7 @@ export interface OrderSummaryProps {
   className?: string;
   discountAmount?: number;
   discount?: any;
+  totalItems?: number;
 }
 
 const OrderSummary: FC<OrderSummaryProps> = ({
@@ -19,6 +20,7 @@ const OrderSummary: FC<OrderSummaryProps> = ({
   total,
   className,
   discount,
+  totalItems,
 }) => {
   const discount_text = discount
     ? discount?.type === 'FIXED_AMOUNT'
@@ -30,16 +32,17 @@ const OrderSummary: FC<OrderSummaryProps> = ({
       <div className={`text-[10px] font-normal ${open_sans.className}`}>
         {discountAmount! > 0 && (
           <div className="flex items-center justify-between ">
-            <span>{discount_text} Discount </span>
+            <span>{discount_text} Giảm giá </span>
             <span>-{discountAmount}</span>
           </div>
         )}
         <div className="flex items-center justify-between ">
-          <span>Subtotal</span>
+          <div> Tổng cộng (`${totalItems} món`) </div>
+
           <span>{subTotal}</span>
         </div>
         <div className="flex items-center justify-between">
-          <span>10% Service Charge</span>
+          <span>10% Phí dịch vụ</span>
           <span>{serviceCharge}</span>
         </div>
         <div className="flex items-center justify-between">
@@ -48,7 +51,7 @@ const OrderSummary: FC<OrderSummaryProps> = ({
         </div>
       </div>
       <div className="flex items-center justify-between text-sm  font-normal">
-        <span>Total</span>
+        <span>Thành tiền</span>
         <span>{total}</span>
       </div>
     </div>

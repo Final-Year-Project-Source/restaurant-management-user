@@ -170,8 +170,8 @@ const OrderItem: React.FC<ItemsProps> = ({
           )) || <div className="text-[14px] text-black-400">{price * newQuantity}</div>}
         </div>
 
-        <CustomizedModal open={isModalOpen} title="Remove item" okText="Remove" onOk={handleOk} onCancel={handleCancel}>
-          Are you sure you want to remove the {name?.toLowerCase()} from your basket?
+        <CustomizedModal open={isModalOpen} title="Xoá món ăn" okText="Xoá" onOk={handleOk} onCancel={handleCancel}>
+          Bạn có chắc muốn loại xoá {name?.toLowerCase()} khỏi giỏ hàng ?
         </CustomizedModal>
       </div>
     </div>
