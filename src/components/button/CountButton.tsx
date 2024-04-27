@@ -10,9 +10,9 @@ interface CountButtonProps extends ButtonProps {
 }
 
 const CountButton: FC<CountButtonProps> = ({ plus = true, variant = 'primary', className, ...restProps }) => {
-  const iconColor = variant === 'primary' ? '#131C16' : '#fff';
-  const buttonColor = variant === 'primary' ? '#ededed' : '#131C16';
-  const borderStyle = 'border border-solid border-black-100';
+  const iconColor = variant === 'primary' ? '#FA4A0C' : '#fff';
+  const buttonColor = variant === 'primary' ? '#fff' : '#FA4A0C';
+  const borderStyle = 'border border-solid border-red-100';
   const iconStyle = { color: iconColor, fontSize: '10px', margin: '0px' };
   const buttonStyle = { backgroundColor: buttonColor };
 
@@ -22,13 +22,13 @@ const CountButton: FC<CountButtonProps> = ({ plus = true, variant = 'primary', c
         components: {
           Button: {
             colorPrimaryHover: 'none',
-            defaultBorderColor: 'rgba(19, 28, 22, 0.20)',
+            defaultBorderColor: '#FA4A0C',
             colorBgContainer: 'transparent',
           },
         },
         token: {
-          colorPrimaryActive: 'RGBA(19, 28, 22, 0.2)',
-          colorBorder: 'RGBA(19, 28, 22, 0.2)',
+          colorPrimaryActive: '#FA4A0C',
+          colorBorder: '#FA4A0C',
         },
       }}
     >

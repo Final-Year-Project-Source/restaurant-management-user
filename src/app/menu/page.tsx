@@ -223,10 +223,9 @@ export default function MenuUI() {
 
   const btnText = (
     <div>
-      <span>View basket</span>
+      <span>Xem giỏ hàng</span>
       <span id="basket-ele" className="font-normal">
-        ・{totalItems} item
-        {totalItems > 1 ? 's' : ''}
+        ・{totalItems} món ăn
       </span>
     </div>
   );
@@ -270,7 +269,7 @@ export default function MenuUI() {
           {organizedProductsAfterFilter?.length === 0 && !isFetching && (
             <Empty
               image={Empty.PRESENTED_IMAGE_SIMPLE}
-              description={<span className="text-black-300 text-lg">No items found</span>}
+              description={<span className="text-black-300 text-lg">Không món ăn nào được tìm thấy</span>}
             />
           )}
           {organizedProductsAfterFilter?.map((category, index) => {
@@ -324,7 +323,7 @@ export default function MenuUI() {
                   isShowPrimaryButton={false}
                   isShowBackBtn={true}
                   onClickBackBtn={onClose}
-                  secondaryBtnChildren={<>Apply filters</>}
+                  secondaryBtnChildren={'Xác nhận'}
                   // disabledSecondary={!dietaryRestrictionsSelected?.length && !proteinsSelected?.length}
                   onClickSecondaryBtn={() => {
                     // update to localstorage filters
@@ -333,7 +332,7 @@ export default function MenuUI() {
 
                     onClose();
                   }}
-                  title="Filter menu"
+                  title="Bộ lộc"
                 >
                   <div className="flex flex-col space-y-[29px] mt-[12px] pl-[25px]">
                     <CheckboxGroup
