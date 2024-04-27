@@ -15,11 +15,11 @@ const Tag: FC<Props> = ({ className, children, ...restProps }) => {
         components: {
           Tag: {
             borderRadiusSM: 7,
-            defaultBg: '#F1EEE8',
+            defaultBg: '#fff',
             fontSizeSM: 10,
-            defaultColor: '#131C16',
+            defaultColor: '#FA4A0C',
             lineHeightSM: 2.2,
-            colorBorder: '#131C16',
+            colorBorder: '#FA4A0C',
           },
         },
       }}

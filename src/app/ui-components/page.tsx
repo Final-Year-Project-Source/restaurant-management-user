@@ -61,14 +61,13 @@ export default function UIComponents() {
   const handleTextAreaChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {};
   return (
     <main className="flex min-h-screen flex-col items-center justify-between space-y-10 p-8 ">
-      {/* 
       <Button disabled>Inactive button</Button>
       <Button variant="secondary">Add to basket ・ 260</Button>
       <Button variant="primary">Button name</Button>
       <IconButton icon={<ArrowLeftIcon />} />
-      <CountButton />
-      <CountButton plus={false} variant="secondary" />
-      <Tag>Out of stock</Tag> */}
+      <CountButton variant="secondary" />
+      <CountButton plus={false} />
+      <Tag>Out of stock</Tag>
       <CategoryButton active>Brunch</CategoryButton>
       <CategoryButton>Sandwiches </CategoryButton>
       {/* <Footer

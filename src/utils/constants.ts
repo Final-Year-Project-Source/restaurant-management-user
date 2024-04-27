@@ -1,15 +1,15 @@
 export const DIETARY_RESTRICTIONS = {
-  groupName: 'Dietary restrictions',
+  groupName: 'Chế độ ăn kiêng',
   options: [
-    { icon: 'Vegan', label: 'Vegan' },
-    { icon: 'Vegetarian', label: 'Vegetarian' },
-    { icon: 'Diary-free', label: 'Diary-free' },
-    { icon: 'Gluten-free', label: 'Gluten-free' },
+    { icon: 'Vegan', label: 'Thuần chay' },
+    { icon: 'Vegetarian', label: 'Chay' },
+    { icon: 'Diary-free', label: 'Không sữa' },
+    { icon: 'Gluten-free', label: 'Không Gluten' },
   ],
 };
 export const PROTEINS = {
   groupName: 'Protein',
-  options: [{ label: 'Chicken' }, { label: 'Pork' }, { label: 'Beef' }, { label: 'SeaFood' }, { label: 'Other' }],
+  options: [{ label: 'Gà' }, { label: 'Heo' }, { label: 'Bò' }, { label: 'Hải sản' }, { label: 'Khác' }],
 };
 
 export const STICKY_HEADER_HEIGHT = 77;

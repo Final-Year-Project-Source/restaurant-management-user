@@ -36,8 +36,8 @@ export default function LandingPage() {
           </div>
 
           <div className="flex flex-col text-white space-y-5 mt-[50px]">
-            <span className="font-black text-[60px] leading-10">Food for</span>
-            <span className="font-black text-[60px] leading-10">Everyone</span>
+            <span className="font-medium text-[60px] leading-10">Đồ ăn cho</span>
+            <span className="font-medium text-[60px] leading-10">mọi người</span>
           </div>
         </div>
         <div className="flex pt-[45px]">
@@ -62,8 +62,10 @@ export default function LandingPage() {
       <div className="md:block hidden h-full">
         <div className="w-full h-2/3 relative">
           <div className="flex flex-col z-20 absolute top-[10%] right-1/2 transform translate-x-1/2 items-center justify-center">
-            <span className="text-white font-bold text-[40px] whitespace-nowrap">Why stay hungry when</span>
-            <span className="text-white font-bold text-[40px] whitespace-nowrap">you can order form Bella Onojie</span>
+            <span className="text-white font-bold text-[40px] whitespace-nowrap">Tại sao lại để mình đói khi</span>
+            <span className="text-white font-bold text-[40px] whitespace-nowrap">
+              bạn có thể đặt món ăn từ Bella Onojie
+            </span>
           </div>
 
           <Image priority src={`/assets/images/landing-page.png`} alt="landing-page" fill className="z-10" />
@@ -89,12 +91,12 @@ export default function LandingPage() {
       </div>
 
       <div className="absolute md:bottom-[65%] bottom-[5%] md:w-[300px] w-full px-[50px] z-30 right-1/2 transform translate-x-1/2">
-        <Button onClick={handleOnClick}>Start Ordering</Button>
+        <Button onClick={handleOnClick}>Đặt món ngay</Button>
       </div>
       <CustomizedModal
         open={isModalOpen}
-        title="Notification"
-        okText="Confirm"
+        title="Thông báo"
+        okText="Xác nhận"
         onOk={() => {
           setIsModalOpen(false);
         }}
@@ -102,7 +104,7 @@ export default function LandingPage() {
           setIsModalOpen(false);
         }}
       >
-        You need to scan the QR code on the dining table before placing an order.
+        Bạn cần quét mã QR trên bàn ăn trước khi đặt món.
       </CustomizedModal>
     </div>
   );

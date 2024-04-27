@@ -33,9 +33,7 @@ export const viewport = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
-      <body
-        className={`${rubik.className} ${rubik.variable} ${open_sans.variable} bg-white-100 h-screen overflow-hidden`}
-      >
+      <body className={`${open_sans.variable} bg-white-100 h-screen overflow-hidden`}>
         <Provider>
           <StyledComponentsRegistry>
             <ToastContainer />
