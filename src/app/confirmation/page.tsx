@@ -51,12 +51,12 @@ const Confirmation = () => {
       {bill?.orders?.length > 0 && (
         <>
           <div className="text-center text-[24px] font-medium text-black-500">
-            Chúng tôi đã nhận được đơn đặt hàng của bạn, {bill?.customer_name}
+            We’ve got your order, {bill?.customer_name}
           </div>
           <div className="text-center text-[14px] text-black-500 mt-[12px]">
-            Hãy nói với nhân viên của chúng tôi nếu bạn có bất kỳ câu hỏi nào về đơn đặt món của mình.
+            Speak to one of our team members if you have any questions about your order.
           </div>
-          <div className="flex font-medium text-black-400 mt-[30px]">Tóm tắt đơn</div>
+          <div className="flex font-medium text-black-400 mt-[30px]">Order summary</div>
           {Items?.map((item: any, index: number) => {
             return (
               <div key={index} className="mt-[20px]">
@@ -79,16 +79,16 @@ const Confirmation = () => {
             <div className={`text-[10px] text-black-500 space-y-[3px] ${open_sans.className}`}>
               {totalDiscount > 0 && (
                 <div className="flex items-center justify-between ">
-                  <span>{discount_text} Giảm giá </span>
+                  <span>{discount_text} Discount </span>
                   <span>-{totalDiscount}</span>
                 </div>
               )}
               <div className="flex items-center justify-between">
-                <div> Tổng cộng (`${Items?.length} món`) </div>
+                <div> Subtotal </div>
                 <div> {subTotal} </div>
               </div>
               <div className="flex items-center justify-between">
-                <div> 10% Phí dịch vụ </div>
+                <div> 10% Service Charge </div>
                 <div> {serviceCharge10} </div>
               </div>
               <div className="flex items-center justify-between">
@@ -97,7 +97,7 @@ const Confirmation = () => {
               </div>
             </div>
             <div className="text-[14px] flex items-center mt-[7px] justify-between">
-              <div> Thành tiền </div>
+              <div> Total </div>
               <div> {bill?.total} </div>
             </div>
           </div>
@@ -109,7 +109,7 @@ const Confirmation = () => {
   );
   const btnText = (
     <div>
-      <span>Thanh toán ngay </span> <span className="font-normal">・ Tổng {bill?.total}</span>
+      <span>Pay now </span> <span className="font-normal">・ Total {bill?.total}</span>
     </div>
   );
 
@@ -125,7 +125,7 @@ const Confirmation = () => {
       isShowPrimaryButton={true}
       isShowBackBtn={true}
       onClickBackBtn={() => router.push(bill_id ? `/basket?bill_id=${bill_id}` : '/basket')}
-      primaryBtnChildren="Đặt món khác"
+      primaryBtnChildren="Order something else"
       onClickPrimaryBtn={() => router.push(bill_id ? `/menu?bill_id=${bill_id}` : '/menu')}
       secondaryBtnChildren={btnText}
       onClickSecondaryBtn={() => {
@@ -137,7 +137,7 @@ const Confirmation = () => {
             router.push(`${res.data.paymentLink}`);
           });
       }}
-      title="Xác nhận"
+      title="Confirmation"
     >
       {(isFetching || isCreating || isLoading) && <LoadingIndicator />}
       {body}

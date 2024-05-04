@@ -20,6 +20,8 @@ import { toast } from 'react-toastify';
 const Basket = () => {
   const router = useRouter();
   const [name, setName] = useState<string>('');
+  const [phoneNumber, setPhoneNumber] = useState<string>('');
+
   const [payments, setPayments] = useState<string>('');
   // const [requiredName, setRequiredName] = useState<string>('');
   const [itemsInBasket, setItemsInBasket] = useState<any[]>([]);
@@ -111,6 +113,10 @@ const Basket = () => {
     setName(e.target.value);
   };
 
+  const handleInputPhoneChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setPhoneNumber(e.target.value);
+  };
+
   const handleOrderNowPayLater = () => {
     setLoading(true);
     if (bill_id && itemsInBasket?.length > 0) {
@@ -196,7 +202,7 @@ const Basket = () => {
 
   const btnText = (
     <div>
-      <span>Đặt món và thanh toán ngay</span> <span className="font-normal">・ {`Total ${total}`}</span>
+      <span>Order & pay now</span> <span className="font-normal">・ {`Total ${total}`}</span>
     </div>
   );
   const body = (
@@ -207,7 +213,7 @@ const Basket = () => {
             return (
               <div key={index} className="space-y-[20px]">
                 <span className="text-sm font-medium text-black-400">
-                  Đặt món tại thời gian: {getFormattedTime(new Date(order.placed_at))}
+                  Order placed at {getFormattedTime(new Date(order.placed_at))}
                 </span>
                 {order?.items.map((item: any, index: number) => {
                   return (
@@ -231,7 +237,7 @@ const Basket = () => {
           })}
 
           {itemsInBasket && itemsInBasket.length > 0 && (
-            <span className="text-sm font-medium text-black-400">Bổ sung thêm</span>
+            <span className="text-sm font-medium text-black-400">New additions</span>
           )}
         </>
       )}
@@ -272,9 +278,9 @@ const Basket = () => {
       {!!payments && (
         <CustomizedModal
           open={!!payments}
-          title="Điền tên của bạn"
-          okText="Xác nhận"
-          onOk={payments === 'Thanh toán ngay bây giờ' ? handlePayNowOK : handlePayLaterOk}
+          title="Add your information"
+          okText="Confirm"
+          onOk={payments === 'Pay Now' ? handlePayNowOK : handlePayLaterOk}
           disabled={!name}
           onCancel={() => setPayments('')}
         >
@@ -285,7 +291,7 @@ const Basket = () => {
             onKeyDown={(e) => {
               if (e.key === 'Enter') {
                 if (name) {
-                  if (payments === 'Thanh toán ngay bây giờ') {
+                  if (payments === 'Pay Now') {
                     handlePayNowOK();
                   } else {
                     handlePayLaterOk();
@@ -294,8 +300,25 @@ const Basket = () => {
               }
             }}
             autoFocus
-            valuePlaceholder="Tên (yêu cầu)"
+            valuePlaceholder="First name (required)"
           />
+          {/* <InputText
+            className="!mt-[10px]"
+            onChange={handleInputPhoneChange}
+            onKeyDown={(e) => {
+              if (e.key === 'Enter') {
+                if (name) {
+                  if (payments === 'Pay Now') {
+                    handlePayNowOK();
+                  } else {
+                    handlePayLaterOk();
+                  }
+                }
+              }
+            }}
+            autoFocus
+            valuePlaceholder="Your phone number (required)"
+          /> */}
         </CustomizedModal>
       )}
     </div>
@@ -303,12 +326,12 @@ const Basket = () => {
 
   return (
     <OtherLayout
-      title="Giỏ hàng"
+      title="Basket"
       isShowPrimaryButton={true}
       disabledPrimary={loading || isBillLoading || isUpdateBillLoading || isFetching || isCreatingPayment}
       disabledSecondary={loading || isBillLoading || isUpdateBillLoading || isFetching || isCreatingPayment}
       onClickBackBtn={() => router.push(bill_id ? `/menu?bill_id=${bill_id}` : '/menu')}
-      primaryBtnChildren="Đặt món ngay, Thanh toán sau"
+      primaryBtnChildren="Order now, pay later"
       onClickPrimaryBtn={() => {
         if (bill_id) {
           handleOrderNowPayLater();

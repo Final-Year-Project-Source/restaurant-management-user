@@ -1,4 +1,6 @@
 'use client';
+import { Avatar } from 'antd';
+import { useRouter } from 'next/navigation';
 import React, { FC, useEffect, useMemo, useRef } from 'react';
 import { IconButton } from '../button';
 import { useScrollbarState } from '../hooks/useScrollbarState';
@@ -33,6 +35,7 @@ const OtherLayout: FC<OtherLayoutProps> = ({
 }) => {
   const otherLayoutBodyRef = useRef(null);
   const { scrollTop, scrollBottom } = useScrollbarState(otherLayoutBodyRef);
+  const router = useRouter();
   const headerFooterHeight = useMemo(() => {
     if (!isShowPrimaryButton) {
       return isTextRequestTaxInvoice ? '211px' : '170px';
@@ -54,6 +57,13 @@ const OtherLayout: FC<OtherLayoutProps> = ({
           {title}
         </span>
         {!isShowBackBtn && <IconButton icon={<DownloadIcon />} onClick={onClickDownBtn} />}
+        <Avatar
+          className="cursor-pointer bg-white text-black-500 mr-4"
+          size={48}
+          onClick={() => router.push('/setting')}
+        >
+          {/* {session?.user.name[0].toUpperCase()} */}
+        </Avatar>
       </div>
       <div ref={otherLayoutBodyRef} className={`overflow-y-auto max-h-screen-${headerFooterHeight}`}>
         {children}

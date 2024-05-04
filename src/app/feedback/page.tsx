@@ -45,28 +45,28 @@ const Feedback = () => {
   const body = (
     <div className="px-6 pt-[13px]">
       <div className="text-black-500 text-[14px] text-center mb-[20px]">
-        Chúng tôi luôn cố gắng để cung cấp cho bạn trải nghiệm 5 sao.
+        We strive to always provide a 5-star experience.
         <br />
-        Sự trải nghiệm của bạn như thế nào?
+        How was it for you?
       </div>
       <div className="flex justify-center mb-[30px]">
         <Stars value={stars} onRateChange={handleRatingStars} disabled={isCreateLoading || loading} />
       </div>
 
-      <div className="font-medium text-[14px] text-black-400"> Hãy cho chúng tôi biết suy nghĩ của bạn </div>
+      <div className="font-medium text-[14px] text-black-400"> Tell us your thoughts </div>
       <div className={`mt-[10px] mb-[40px] ${open_sans.className}`}>
         <TextAreaInput
           disabled={isCreateLoading || loading}
           onChange={handleComment}
           required
-          valuePlaceholder="Bình luận ở đây (tuỳ chọn)"
+          valuePlaceholder="Comment here (optional)"
         />
       </div>
     </div>
   );
   const btnText = (
     <div>
-      <span>Gửi đánh giá của bạn </span>
+      <span>Submit your feedback </span>
     </div>
   );
 
@@ -76,11 +76,11 @@ const Feedback = () => {
       isShowBackBtn={true}
       onClickBackBtn={handleClickBackBtn}
       onClickSecondaryBtn={handleSubmitFeedBackButton}
-      primaryBtnChildren="Đặt món khác"
+      primaryBtnChildren="Order something else"
       secondaryBtnChildren={btnText}
       disabledBackBtn={isCreateLoading || loading}
       disabledSecondary={isCreateLoading || loading}
-      title="Đánh giá"
+      title="Feedback"
     >
       {body}
       {(isCreateLoading || loading) && <LoadingIndicator />}

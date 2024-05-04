@@ -10,17 +10,8 @@ import { open_sans } from '@/utils/fontUtils';
 import Provider from './Provider';
 
 export const metadata: Metadata = {
-  title: 'Bella Onojie',
-  description: 'QR Ordering App',
-  icons: {
-    icon: [
-      {
-        media: '(prefers-color-scheme: light)',
-        url: '/assets/icons/mini-logo.svg',
-        href: '/assets/icons/mini-logo.svg',
-      },
-    ],
-  },
+  title: 'Bella Onojie User',
+  description: 'App',
 };
 
 export const viewport = {
@@ -33,7 +24,7 @@ export const viewport = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
-      <body className={`${open_sans.variable} bg-white-100 h-screen overflow-hidden`}>
+      <body className={`${open_sans.variable} bg-grey-100 h-screen overflow-hidden`}>
         <Provider>
           <StyledComponentsRegistry>
             <ToastContainer />
