@@ -1,29 +1,43 @@
 'use client';
 import React, { useState } from 'react';
 import { Input, ConfigProvider } from 'antd';
-import { SearchIcon } from '@/components/Icons';
+import { open_sans } from '@/utils/fontUtils';
 import './input.scss';
+import './inputPassword.scss';
 
-interface SearchInputProps extends React.ComponentProps<typeof Input> {
+import { EyeInvisibleOutlined, EyeTwoTone } from '@ant-design/icons';
+interface InputTextProps extends React.ComponentProps<typeof Input> {
+  valuePlaceholder?: string;
   onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  passwordVisible?: boolean;
+  setPasswordVisible?: (value: boolean) => void;
 }
 
-const SearchInput: React.FC<SearchInputProps> = ({ ...restProps }) => {
+const InputPasswordText: React.FC<InputTextProps> = ({
+  valuePlaceholder,
+  passwordVisible,
+  setPasswordVisible,
+  ...restProps
+}) => {
   const [focus, setFocus] = useState(false);
+
   return (
     <ConfigProvider
       theme={{
         components: {
           Input: {
-            paddingInline: 16,
-            paddingBlock: 11,
+            paddingInline: 15,
+            paddingBlock: 10,
             activeBorderColor: 'rgba(19, 28, 22, 0.2)',
             hoverBorderColor: 'rgba(19, 28, 22, 0.2)',
+            borderRadius: 16,
+            activeBg: 'transparent',
           },
         },
         token: {
-          lineHeight: 1.5,
+          lineHeight: 1.85,
           colorText: '#131C16',
+          fontFamily: `${open_sans}, sans-serif`,
           fontSize: 14,
           colorBgContainer: 'transparent',
           colorBorder: 'rgba(19, 28, 22, 0.2)',
@@ -32,25 +46,20 @@ const SearchInput: React.FC<SearchInputProps> = ({ ...restProps }) => {
           colorPrimaryActive: 'transparent',
           colorTextPlaceholder: 'rgba(0, 0, 0, 0.50)',
           borderRadius: 16,
-          fontFamily: 'var(--font-open-sans)',
         },
       }}
     >
-      {/* <meta name="viewport" content="width=device-width, initial-scale=0.8, maximum-scale=0.8, user-scalable=no" /> */}
-      <Input
-        className={`search-input-container--${focus ? 'focus' : ''}`}
-        placeholder="Search menu"
+      <Input.Password
+        className={`input-password ${focus ? '--focus' : ''}`}
+        autoComplete="off"
         onFocus={() => setFocus(true)}
         onBlur={() => setFocus(false)}
-        prefix={
-          <div className="mr-[8px]">
-            <SearchIcon />
-          </div>
-        }
+        visibilityToggle={{ visible: passwordVisible, onVisibleChange: setPasswordVisible }}
+        placeholder={valuePlaceholder}
         {...restProps}
       />
     </ConfigProvider>
   );
 };
 
-export default SearchInput;
+export default InputPasswordText;

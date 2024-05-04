@@ -1,4 +1,6 @@
 'use client';
+import { Avatar } from 'antd';
+import { useRouter } from 'next/navigation';
 import React, { FC, useRef } from 'react';
 import { IconButton } from '../button';
 import { useScrollbarState } from '../hooks/useScrollbarState';
@@ -23,12 +25,21 @@ const ProductLayout: FC<ProductLayoutProps> = ({
 }) => {
   const productLayoutRef = useRef(null);
   const { scrollBottom } = useScrollbarState(productLayoutRef);
+  const router = useRouter();
 
   return (
     <div className="flex flex-col">
-      <div className="w-full pt-[22px] pl-4 fixed z-10">
+      <div className="flex w-full pt-[22px] px-4 fixed z-10 justify-between">
         <IconButton icon={<ArrowLeftIcon />} onClick={onClickBackBtn} />
+        <Avatar
+          className="cursor-pointer bg-white text-black-500 mr-4"
+          size={48}
+          onClick={() => router.push('/setting')}
+        >
+          {/* {session?.user.name[0].toUpperCase()} */}
+        </Avatar>
       </div>
+
       <div ref={productLayoutRef} className="h-screen overflow-y-auto max-h-screen-85">
         {children}
       </div>

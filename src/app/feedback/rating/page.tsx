@@ -48,7 +48,7 @@ const Rating = () => {
             isShowPrimaryButton={false}
             isShowBackBtn={true}
             onClickBackBtn={() => router.push(`/receipt?bill_id=${bill_id}`)}
-            secondaryBtnChildren="Bắt đầu đặt món lại"
+            secondaryBtnChildren="Start ordering again"
             onClickSecondaryBtn={() => router.push('/menu')}
             title="Feedback"
             disabledBackBtn={isFetching}
@@ -63,9 +63,9 @@ const Rating = () => {
             disabledPrimary={isLoading || isFetching}
             isShowPrimaryButton={true}
             isShowBackBtn={true}
-            primaryBtnChildren="Bắt đầu đặt món lại"
+            primaryBtnChildren="Start ordering again"
             onClickPrimaryBtn={() => router.push('/menu')}
-            secondaryBtnChildren="Gửi chi tiết liên lạc của bạn"
+            secondaryBtnChildren="Submit your contact details"
             onClickBackBtn={() => router.push(`/receipt?bill_id=${bill_id}`)}
             onClickSecondaryBtn={handleSubmitButton}
             title="Feedback"

@@ -5,7 +5,7 @@ import { useWindowDimensions } from '@/components/hooks/useWindowDimensions';
 import MenuLayout from '@/components/layouts/MenuLayout';
 import OtherLayout from '@/components/layouts/OtherLayout';
 import LoadingIndicator from '@/components/LoadingIndicator';
-import ProductItem from '@/components/productItem';
+import ProductItem from '@/components/ProductItem';
 import { updateDietaryRestrictions, updateProtein } from '@/redux/features/menuFilterSlice';
 import { useGetSingleBillQuery } from '@/redux/services/billApi';
 import { useGetCategoriesQuery } from '@/redux/services/categoryApi';
@@ -67,7 +67,7 @@ export default function MenuUI() {
     }
   }, [allCategories]);
 
-  const products = filteredProductsData?.data?.items;
+  const products = filteredProductsData?.data;
   const organizeProductsByCategory = (products: any[], categories: any[]) => {
     const clonedCategories = Array.isArray(categories) ? [...categories] : [];
 
@@ -76,7 +76,7 @@ export default function MenuUI() {
       .map((category) => {
         const categoryItems = products?.filter((product) => product.category_id === category._id);
         if (categoryItems?.length > 0) {
-          const sortedItems = categoryItems.sort((a, b) => a.item_name.localeCompare(b.item_name));
+          const sortedItems = categoryItems.sort((a, b) => a.name.localeCompare(b.name));
           return {
             id: category._id,
             name: category.name,
@@ -223,9 +223,10 @@ export default function MenuUI() {
 
   const btnText = (
     <div>
-      <span>Xem giỏ hàng</span>
+      <span>View basket</span>
       <span id="basket-ele" className="font-normal">
-        ・{totalItems} món ăn
+        ・{totalItems} item
+        {totalItems > 1 ? 's' : ''}
       </span>
     </div>
   );
@@ -264,12 +265,13 @@ export default function MenuUI() {
         isEmptyData={!organizedProductsAfterFilter?.length}
         disabledSecondary={!totalItems}
         categories={organizedProductsAfterFilter}
+        bottomHeight={height}
       >
         <main className="flex flex-col justify-center px-[24px] h-full">
           {organizedProductsAfterFilter?.length === 0 && !isFetching && (
             <Empty
               image={Empty.PRESENTED_IMAGE_SIMPLE}
-              description={<span className="text-black-300 text-lg">Không món ăn nào được tìm thấy</span>}
+              description={<span className="text-black-300 text-lg">No items found</span>}
             />
           )}
           {organizedProductsAfterFilter?.map((category, index) => {
@@ -286,20 +288,18 @@ export default function MenuUI() {
                 <div className="flex flex-col w-full mt-[30px]">
                   {category?.items?.map((item, index) => (
                     <Link
-                      className={`${
-                        item.variants[0]?.stores[0]?.available_for_sale ? 'cursor-pointer' : 'pointer-events-none'
-                      }`}
-                      key={item.id}
-                      href={bill_id ? `/product?id=${item.id}&bill_id=${bill_id}` : `/product?id=${item.id}`}
+                      className={`${item.is_available ? 'cursor-pointer' : 'pointer-events-none'}`}
+                      key={item._id}
+                      href={bill_id ? `/product?id=${item._id}&bill_id=${bill_id}` : `/product?id=${item._id}`}
                     >
                       <div className={index !== 0 ? 'mt-[22px]' : ''}>
                         <ProductItem
-                          id={item.id}
-                          name={item.item_name}
+                          id={item._id}
+                          name={item.name}
                           image_url={item.image_url}
                           description={item.description}
-                          price={item.variants[0].default_price}
-                          track_stock={item.variants[0]?.stores[0]?.available_for_sale}
+                          price={item.price}
+                          track_stock={item.is_available}
                         />
                       </div>
                       {index < length - 1 && <hr className="w-full border-t border-black-100 mt-[18px]" />}
@@ -323,7 +323,7 @@ export default function MenuUI() {
                   isShowPrimaryButton={false}
                   isShowBackBtn={true}
                   onClickBackBtn={onClose}
-                  secondaryBtnChildren={'Xác nhận'}
+                  secondaryBtnChildren={<>Apply filters</>}
                   // disabledSecondary={!dietaryRestrictionsSelected?.length && !proteinsSelected?.length}
                   onClickSecondaryBtn={() => {
                     // update to localstorage filters
@@ -332,7 +332,7 @@ export default function MenuUI() {
 
                     onClose();
                   }}
-                  title="Bộ lộc"
+                  title="Filter menu"
                 >
                   <div className="flex flex-col space-y-[29px] mt-[12px] pl-[25px]">
                     <CheckboxGroup
