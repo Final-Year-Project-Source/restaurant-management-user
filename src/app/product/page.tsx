@@ -131,7 +131,7 @@ const Product = () => {
 
   const btnText = (
     <div>
-      <span>Thêm vào giỏ hàng</span> <span className="font-normal">・ {totalAmount}</span>
+      <span>Add to basket</span> <span className="font-normal">・ {totalAmount}</span>
     </div>
   );
 
@@ -196,10 +196,10 @@ const Product = () => {
               ))}
             {getDietaryRequests((product as any)?.dietary_restrictions || [])?.length > 0 && (
               <CheckboxGroup
-                groupName="Chế độ ăn kiêng"
+                groupName="Dietary requests"
                 options={
                   getDietaryRequests((product as any)?.dietary_restrictions || [])?.map((label: any) => ({
-                    label: 'Làm từ ' + label,
+                    label: 'Make it' + label,
                   })) ?? []
                 }
                 onChange={(value) => {
@@ -208,8 +208,8 @@ const Product = () => {
               />
             )}
             <div className="flex flex-col space-y-2.5">
-              <span className="font-medium text-sm text-black-400">Ghi chú</span>
-              <TextAreaInput valuePlaceholder="Thêm ghi chú cho nhà bếp" onChange={handleTextAreaChange} />
+              <span className="font-medium text-sm text-black-400">Notes</span>
+              <TextAreaInput valuePlaceholder="Notes for the kitchen" onChange={handleTextAreaChange} />
             </div>
           </div>
         )}

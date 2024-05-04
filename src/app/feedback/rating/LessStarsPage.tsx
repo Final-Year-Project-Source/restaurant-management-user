@@ -19,44 +19,44 @@ const LessStarsPage = ({
   isPhoneValid: boolean;
   disabled: boolean;
 }) => {
-  const emailErrorMessage = !isEmailValid ? 'Vui lòng nhập email hợp lệ' : '';
-  const phoneErrorMessage = !isPhoneValid ? 'Vui lòng nhập số điện thoại hợp lệ' : '';
+  const emailErrorMessage = !isEmailValid ? 'Please enter valid email format' : '';
+  const phoneErrorMessage = !isPhoneValid ? 'Please enter valid phone number format' : '';
 
   return (
     <div className="px-6 pt-[13px] pb-[40px]">
-      <div className="font-medium text-black-500 text-[24px] text-center mb-3">Chúng tôi luôn làm việc vì bạn ☹️</div>
+      <div className="font-medium text-black-500 text-[24px] text-center mb-3">We have work to do ☹️</div>
       <div className="text-black-500 text-[14px] text-center mb-4">
-        Chúng tôi chân thành đánh giá cao phản hồi của bạn.
+        We sincerely appreciate your feedback.
         <br />
-        Điều quan trọng là chúng tôi phải liên tục cải thiện.
+        It is important for us to continually improve.
       </div>
       <div className="text-black-500 text-[14px] text-center mb-[22px]">
-        Chúng tôi có thể liên hệ với bạn về trải nghiệm của bạn không?
+        Can we contact you about your experience?
         <br />
-        Chúng tôi sẽ tặng voucher miễn phí cho lần ghé thăm tiếp theo của bạn.
+        We will offer a complimentary voucher for your next visit.
       </div>
       <div className="px-[8px] flex flex-col space-y-[20px]">
         <div>
-          <div className="font-medium text-[14px] text-black-400"> Địa chỉ email liên lạc </div>
+          <div className="font-medium text-[14px] text-black-400"> Contact email </div>
           <div className={`mt-[10px] ${open_sans.className}`}>
             <InputText
               disabled={disabled}
               value={email}
               onChange={handleEmailChange}
               required
-              placeholder="Nhập email của bạn (bắt buộc)"
+              placeholder="Enter your email (required)"
             />
             {!isEmailValid && <div className="text-red-400 mt-[5px] text-[12px]">{emailErrorMessage}</div>}
           </div>
         </div>
         <div>
-          <div className="font-medium text-[14px] text-black-400">Số điện thoại liên hệ</div>
+          <div className="font-medium text-[14px] text-black-400"> Contact phone </div>
           <div className={`mt-[10px] ${open_sans.className}`}>
             <InputText
               disabled={disabled}
               value={phone}
               onChange={handlePhoneChange}
-              placeholder="Nhập số điện thoại của bạn (tùy chọn)"
+              placeholder="Enter your phone (optional)"
             />
             {/* Display error message if phone number is invalid */}
             {!isPhoneValid && <div className="text-red-400  mt-[5px] text-[12px]">{phoneErrorMessage}</div>}

@@ -2,14 +2,19 @@
 import React, { FC, useEffect, useMemo, useRef, useState } from 'react';
 import { IconButton } from '../button';
 import { FilterIcon } from '../Icons';
-import SearchInput from '../input/searchInput';
 import Footer, { FooterProps } from './Footer';
 import CategoryButton from '@/components/button/CategoryButton';
 import { CloseOutlined } from '@ant-design/icons';
 import { useSelector } from 'react-redux';
 import { RootState } from '@/redux/store';
 import { CheckboxValueType } from 'antd/es/checkbox/Group';
+import { useGetCategoriesQuery } from '@/redux/services/categoryApi';
+import { PADDING_BOTTOM_MENU } from '@/utils/constants';
+import SearchInput from '../input/searchInput';
 import { useScrollbarState } from '../hooks/useScrollbarState';
+import { Avatar } from 'antd';
+import { useRouter } from 'next/navigation';
+
 export interface MenuLayoutProps extends FooterProps {
   children?: React.ReactNode;
   handleSearch?: (e: React.ChangeEvent<HTMLInputElement>) => void;
@@ -21,6 +26,7 @@ export interface MenuLayoutProps extends FooterProps {
   setIsClickedClickCategoryBtn: (value: boolean) => void;
   isEmptyData?: boolean;
   categories?: any;
+  bottomHeight?: number;
 }
 
 const MenuLayout: FC<MenuLayoutProps> = ({
@@ -39,7 +45,9 @@ const MenuLayout: FC<MenuLayoutProps> = ({
   setIsClickedClickCategoryBtn,
   isEmptyData,
   categories,
+  bottomHeight = 0,
 }) => {
+  const router = useRouter();
   const categoryBarRef = useRef(null);
   const isSticky = (categoryBarRef?.current as any)?.getBoundingClientRect()?.top === 0;
   const menuLayoutRef = useRef(null);
@@ -135,10 +143,17 @@ const MenuLayout: FC<MenuLayoutProps> = ({
               </span>
             )}
           </div>
+          <Avatar
+            className="cursor-pointer bg-white text-black-500 mr-4"
+            size={48}
+            onClick={() => router.push('/setting')}
+          >
+            {/* {session?.user.name[0].toUpperCase()} */}
+          </Avatar>
         </div>
         <div
           ref={categoryBarRef}
-          className={`sticky shrink-0 top-0 bg-white-100 z-10 pl-[24px] pt-[20px] pb-[19px] flex space-x-[14px] overflow-auto ${
+          className={`sticky shrink-0 top-0 bg-grey-100 z-10 pl-[24px] pt-[20px] pb-[19px] flex space-x-[14px] overflow-auto ${
             categoryBarRef?.current && isSticky ? 'shadow-medium-bottom' : ''
           }`}
         >
@@ -155,7 +170,9 @@ const MenuLayout: FC<MenuLayoutProps> = ({
         </div>
         {children}
         <Footer
-          className={scrollBottom - 40 > 0 ? 'shadow-medium-top' : ''}
+          className={
+            scrollBottom - (PADDING_BOTTOM_MENU + bottomHeight) > 0 ? 'shadow-medium-top' : 'shadow-medium-none'
+          }
           isShowPrimaryButton={isShowPrimaryButton}
           disabledSecondary={disabledSecondary}
           onClickPrimaryBtn={onClickPrimaryBtn}

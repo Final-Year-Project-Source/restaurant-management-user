@@ -49,3 +49,8 @@ export const validateTaxID = (taxID: string) => {
 export const validateIsNotEmpty = (value: string) => {
   return value.trim() !== '';
 };
+
+export const isValidEmail = (email: string) => {
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  return emailRegex.test(email);
+};

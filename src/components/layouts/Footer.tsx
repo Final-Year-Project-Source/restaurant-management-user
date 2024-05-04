@@ -25,10 +25,10 @@ const Footer: FC<FooterProps> = ({
   className,
 }) => {
   return (
-    <div className={`${className || ''} w-full fixed flex flex-col space-y-3 bottom-0 bg-white-100 px-6 py-3 z-999`}>
+    <div className={`${className || ''} w-full fixed flex flex-col space-y-3 bottom-0 bg-grey-100 px-6 py-3 z-999`}>
       {isTextRequestTaxInvoice && (
         <div className="text-[14px] text-black-500 text-center mb-2">
-          Sau khi bạn yêu cầu hóa đơn thuế, nhân viên của chúng tôi sẽ in ra, ký tên và giao cho bạn.
+          Once you request the tax invoice, a member of our staff will print it off, sign, and hand it to you.
         </div>
       )}
       {isShowPrimaryButton && (

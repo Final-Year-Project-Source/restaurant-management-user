@@ -14,6 +14,7 @@ import { diningTableApi } from './services/tableApi';
 import { userApi } from './services/userApi';
 import { taxInvoiceApi } from './services/taxInvoiceApi';
 import { billApi } from './services/billApi';
+import { employeeApi } from './services/employeeApi';
 // export const store = configureStore({
 //   reducer: {
 //     basketReducer,
@@ -41,6 +42,7 @@ export const makeStore = () => {
       [feedbackApi.reducerPath]: feedbackApi.reducer,
       [taxInvoiceApi.reducerPath]: taxInvoiceApi.reducer,
       [billApi.reducerPath]: billApi.reducer,
+      [employeeApi.reducerPath]: employeeApi.reducer,
     },
     devTools: process.env.NODE_ENV !== 'production',
     middleware: (getDefaultMiddleware) =>
