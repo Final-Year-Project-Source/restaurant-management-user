@@ -33,6 +33,7 @@ const Rating = () => {
   const isPhoneValid = validatePhoneNumber(phone);
 
   const isFormValid = email.trim() !== '' && isEmailValid && (phone.trim() === '' || isPhoneValid);
+
   const handleSubmitButton = () => {
     updateFeedback({ data: { id: bill.feedback_info?._id, contact_email: email.trim(), contact_phone: phone.trim() } })
       .unwrap()

@@ -15,24 +15,29 @@ const CategoryButton: FC<CategoryButtonProps> = ({ children, className, active, 
       theme={{
         components: {
           Button: {
-            borderRadius: 16,
+            borderRadius: 0,
             fontSize: 16,
-            colorPrimaryHover: 'none',
-            defaultGhostBorderColor: 'none',
+            colorPrimaryHover: 'transparent',
+            defaultBorderColor: 'transparent',
+            defaultGhostBorderColor: 'transparent',
+            colorPrimaryActive: 'transparent',
           },
         },
         token: {
-          colorPrimaryActive: 'RGBA(19, 28, 22, 0.2)',
+          colorPrimaryActive: 'transparent',
+          colorBorder: 'transparent',
+          colorBgTextActive: 'transparent',
         },
       }}
     >
-      <div
+      <ButtonElement
+        type="text"
         style={{ fontFamily: 'var(--font-rubik)' }}
         {...restProps}
-        className={`${className || ''} ${active ? styles.active : styles.inActive} ${styles.categoryButton} w-[100px]`}
+        className={`${className || ''} ${active ? styles.active : styles.inActive} ${styles.categoryButton}`}
       >
         {children}
-      </div>
+      </ButtonElement>
     </ConfigProvider>
   );
 };

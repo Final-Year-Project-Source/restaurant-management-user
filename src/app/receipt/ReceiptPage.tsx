@@ -2,6 +2,7 @@
 import LoadingIndicator from '@/components/LoadingIndicator';
 import OrderItem from '@/components/OrderItem';
 import Stars from '@/components/stars';
+import { formatPrice } from '@/utils/commonUtils';
 import { open_sans } from '@/utils/fontUtils';
 import { useRouter, useSearchParams } from 'next/navigation';
 import { useState } from 'react';
@@ -31,7 +32,7 @@ const ReceiptPage = ({
   const discount = receiptData?.discount_info;
   const discount_text = discount
     ? discount?.type === 'FIXED_AMOUNT'
-      ? `฿${discount?.value}`
+      ? `฿${formatPrice(discount?.value)}`
       : `${discount?.value}%`
     : null;
   let Items = [];
@@ -51,12 +52,12 @@ const ReceiptPage = ({
           {receiptData?.feedback_info ? (
             <>
               <div className="font-medium text-black-500 text-[24px] text-center mb-3">
-                Mọi thứ đã hoàn tất, {receiptData?.customer_name}
+                All settled, {receiptData?.customer_name}
               </div>
               <div className="text-black-500 text-[14px] text-center mb-4">
-                Cảm ơn bạn rất nhiều vì đã ghé thăm chúng tôi,
+                Thank you so much for visiting us,
                 <br />
-                và cảm ơn bạn đã chia sẻ suy nghĩ của mình!
+                and thank you for sharing your thoughts!
               </div>
             </>
           ) : (
@@ -65,9 +66,9 @@ const ReceiptPage = ({
                 All settled, {receiptData?.customer_name} 🙏
               </div>
               <div className="text-black-500 text-[14px] text-center mb-4">
-                Cảm ơn bạn rất nhiều vì đã ghé thăm chúng tôi.
+                Thank you so much for visiting us.
                 <br />
-                Trải nghiệm chung ngày hôm nay của bạn thế nào?
+                How was your overall experience today?
               </div>
               <div className="flex items-center justify-center">
                 <Stars onRateChange={handleRatingStars} value={receiptData?.feedback_info?.stars} />
@@ -75,7 +76,7 @@ const ReceiptPage = ({
             </>
           )}
 
-          <div className="flex font-medium text-black-400 mt-[30px]"> Tóm tắt đơn</div>
+          <div className="flex font-medium text-black-400 mt-[30px]"> Order summary </div>
           {Items?.map((item: any, index: number) => {
             return (
               <div key={index} className="mt-[20px]">
@@ -98,26 +99,26 @@ const ReceiptPage = ({
             <div className={`text-[10px] text-black-500 space-y-[3px] ${open_sans.className}`}>
               {totalDiscount > 0 && (
                 <div className="flex items-center justify-between ">
-                  <span>{discount_text} Giảm giá </span>
-                  <span>-{totalDiscount}</span>
+                  <span>{discount_text} Discount </span>
+                  <span>-{formatPrice(totalDiscount)}</span>
                 </div>
               )}
               <div className="flex items-center justify-between">
-                <div> Tổng cộng (`${Items?.length} món`) </div>
-                <div> {subTotal} </div>
+                <div> Subtotal </div>
+                <div> {formatPrice(subTotal)} </div>
               </div>
               <div className="flex items-center justify-between">
-                <div> 10% Phí dịch vụ </div>
-                <div> {serviceCharge10} </div>
+                <div> 10% Service Charge </div>
+                <div> {formatPrice(serviceCharge10)} </div>
               </div>
               <div className="flex items-center justify-between">
                 <div> 7% VAT </div>
-                <div> {vat7} </div>
+                <div> {formatPrice(vat7)} </div>
               </div>
             </div>
             <div className="text-[14px] flex items-center mt-[7px] justify-between ">
-              <div> Thành tiền </div>
-              <div> {receiptData?.total} </div>
+              <div> Total </div>
+              <div> {formatPrice(receiptData?.total)} </div>
             </div>
           </div>
         </div>

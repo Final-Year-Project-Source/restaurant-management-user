@@ -1,8 +1,10 @@
 'use client';
 import { YellowLaneBlackIcon } from '@/components/Icons';
 import OrderItem from '@/components/OrderItem';
+import { formatPrice } from '@/utils/commonUtils';
 import { open_sans } from '@/utils/fontUtils';
 import moment from 'moment';
+import Image from 'next/image';
 
 const ReceiptDownLoadedImage = ({ className, bill }: { className?: string; bill: any }) => {
   const discount = bill?.discount_info;
@@ -26,22 +28,23 @@ const ReceiptDownLoadedImage = ({ className, bill }: { className?: string; bill:
   return (
     <div className={`${className || ''} px-6 pt-[60px]`} id="receipt">
       <div className="flex items-center flex-col">
-        <YellowLaneBlackIcon />
+        <Image priority src="/assets/icons/logo.svg" alt="logo" width={100} height={100} />
+
         <span
           className={`text-center leading-normal max-w-[260px] text-black-500 text-[10px] mt-[20.78px] mb-[30px] font-normal ${open_sans.className}`}
         >
-          Bella OnoJie. 174 Nguyễn Lương Bằng, phường Hoà Khánh bắc, quận Liên Chiểu, Đà Nẵng, Việt Nam. Mã số thuế :
-          0235563109861. Tel: 092 123 8378
+          Bella OnoJie. 174 Nguyen Luong Bang, Hoa Khanh bac, Lien Chieu, Da Nang, Viet Nam. Tax ID : 0235563109861.
+          Tel: 092 123 8378
         </span>
 
-        <div className="h-[28px] font-medium leading-normal mb-[12px] text-[24px] text-black-500">Biên lai</div>
+        <div className="h-[28px] font-medium leading-normal mb-[12px] text-[24px] text-black-500">Receipt</div>
 
         <div className="h-[17px] leading-normal">
           {moment(bill?.receipt_data?.created_at).format('DD MMMM YYYY, HH:mm')}
         </div>
       </div>
 
-      <div className="flex font-medium text-black-400 mt-[30px]"> Tóm tắt đơn </div>
+      <div className="flex font-medium text-black-400 mt-[30px]"> Order summary </div>
       {Items?.map((item: any, index: number) => {
         return (
           <div key={index} className="mt-[20px]">
@@ -64,26 +67,26 @@ const ReceiptDownLoadedImage = ({ className, bill }: { className?: string; bill:
         <div className={`text-[10px] text-black-500 space-y-[3px] ${open_sans.className}`}>
           {totalDiscount > 0 && (
             <div className="flex items-center justify-between ">
-              <span>{discount_text} Giảm giá </span>
-              <span>-{totalDiscount}</span>
+              <span>{discount_text} Discount </span>
+              <span>-{formatPrice(totalDiscount)}</span>
             </div>
           )}
           <div className="flex items-center justify-between">
-            <div> Tổng cộng (`${Items?.length} món`) </div>
-            <div> {subTotal} </div>
+            <div> Subtotal </div>
+            <div> {formatPrice(subTotal)} </div>
           </div>
           <div className="flex items-center justify-between">
-            <div> 10% Phí dịch vụ </div>
-            <div> {serviceCharge10} </div>
+            <div> 10% Service Charge </div>
+            <div> {formatPrice(serviceCharge10)} </div>
           </div>
           <div className="flex items-center justify-between">
             <div> 7% VAT </div>
-            <div> {vat7} </div>
+            <div> {formatPrice(vat7)} </div>
           </div>
         </div>
         <div className="text-[14px] flex items-center mt-[7px] justify-between ">
-          <div> Thành tiền </div>
-          <div> {bill?.total} </div>
+          <div> Total </div>
+          <div> {formatPrice(bill?.total)} </div>
         </div>
       </div>
     </div>

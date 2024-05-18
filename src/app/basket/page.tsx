@@ -4,14 +4,14 @@ import OtherLayout from '@/components/layouts/OtherLayout';
 import LoadingIndicator from '@/components/LoadingIndicator';
 import CustomizedModal from '@/components/modal/CustomizedModal';
 import OrderItem from '@/components/OrderItem';
-import OrderSummary from '@/components/orderSummary';
+import OrderSummary from '@/components/OrderSummary';
 import { resetBasket } from '@/redux/features/basketSlice';
 import { useAddBillMutation, useGetSingleBillQuery, useUpdateBillMutation } from '@/redux/services/billApi';
 import { useGetSingleDiscountQuery } from '@/redux/services/discountApi';
 import { useCreatePaymentMutation } from '@/redux/services/paymentApi';
 import { useGetSingleDiningTableQuery } from '@/redux/services/tableApi';
 import { RootState } from '@/redux/store';
-import { getFormattedTime } from '@/utils/commonUtils';
+import { formatPrice, getFormattedTime } from '@/utils/commonUtils';
 import { useRouter, useSearchParams } from 'next/navigation';
 import { useCallback, useEffect, useMemo, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
@@ -124,11 +124,12 @@ const Basket = () => {
         id: bill_id,
         orderItems: itemsInBasket?.map((item) => ({
           ...item,
-          product: item.product._id,
+          product: item.product.id,
           modifiers: item.modifiers.map((modifier: any) => modifier._id),
           dietary_requests: item.dietary_restrictions,
         })),
       };
+
       setLoadingPayment(true);
       // run api update order with new additions data (itemsInBasket)
       updateBill({ data: data })
@@ -147,7 +148,7 @@ const Basket = () => {
       orderItems: itemsInBasket?.map((item) => ({
         ...item,
         modifiers: item.modifiers.map((modifier: any) => modifier._id),
-        product: item.product._id,
+        product: item.product.id,
         dietary_requests: item.dietary_restrictions,
       })),
       customer_name: name.trim(),
@@ -161,7 +162,7 @@ const Basket = () => {
       .unwrap()
       .then((response) => {
         dispatch(resetBasket());
-        createPayment({ data: { bill_id: response.data._id } })
+        createPayment({ data: { bill_id: response.data.id } })
           .unwrap()
           .then((response) => {
             router.push(response.data.paymentLink);
@@ -177,7 +178,7 @@ const Basket = () => {
       orderItems: itemsInBasket?.map((item) => ({
         ...item,
         modifiers: item.modifiers.map((modifier: any) => modifier._id),
-        product: item.product._id,
+        product: item.product.id,
         dietary_requests: item.dietary_restrictions,
       })),
       customer_name: name.trim(),
@@ -190,7 +191,7 @@ const Basket = () => {
     })
       .unwrap()
       .then((response) => {
-        router.push(`/confirmation?bill_id=${response.data._id}`);
+        router.push(`/confirmation?bill_id=${response.data.id}`);
       })
       .catch((error) => toast.error(error.data.message));
     setPayments('');
@@ -202,7 +203,7 @@ const Basket = () => {
 
   const btnText = (
     <div>
-      <span>Order & pay now</span> <span className="font-normal">・ {`Total ${total}`}</span>
+      <span>Order & pay now</span> <span className="font-normal">・ {`Total ${formatPrice(total)}`}</span>
     </div>
   );
   const body = (
@@ -349,8 +350,8 @@ const Basket = () => {
               id: bill_id,
               orderItems: itemsInBasket?.map((item) => ({
                 ...item,
-                product: item.product._id,
-                modifiers: item.modifiers.map((modifier: any) => modifier._id),
+                product: item.product.id,
+                modifiers: item.modifiers.map((modifier: any) => modifier.id),
                 dietary_requests: item.dietary_restrictions,
               })),
             };

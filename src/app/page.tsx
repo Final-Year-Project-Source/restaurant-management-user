@@ -26,7 +26,6 @@ export default function LandingPage() {
       dispatch(removeTable());
     }
   };
-  console.log({ isMobile });
 
   return (
     <div className="w-full h-full max-md:bg-red-100 max-md:pt-[56px] relative">

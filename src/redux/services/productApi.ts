@@ -15,7 +15,7 @@ export const productApi = createApi({
       providesTags: ['Product'],
     }),
     getSingleProduct: builder.query<any, { id: string }>({
-      query: (arg) => `product?id=${arg.id}`,
+      query: (arg) => `product/${arg.id}`,
       providesTags: ['Product'],
     }),
     getFilteredProducts: builder.query<any, { search?: string; dietary_restrictions?: any[]; proteins?: any[] }>({
@@ -23,11 +23,11 @@ export const productApi = createApi({
         let queryString = 'product?';
         if (search) queryString += `&search=${encodeURIComponent(search)}`;
         if (dietary_restrictions?.length)
-          queryString += `&dietary_restrictions=${encodeURIComponent(
+          queryString += `&dietary_restrictionsParam=${encodeURIComponent(
             JSON.stringify(dietary_restrictions.map((r) => r.toLowerCase())),
           )}`;
         if (proteins?.length)
-          queryString += `&proteins=${encodeURIComponent(JSON.stringify(proteins.map((p) => p.toLowerCase())))}`;
+          queryString += `&proteinsParam=${encodeURIComponent(JSON.stringify(proteins.map((p) => p.toLowerCase())))}`;
         return queryString;
       },
       providesTags: ['Product'],

@@ -48,13 +48,19 @@ const ReceiptDownLoad = () => {
   const body = (
     <div className="px-6 pt-[13px] pb-[40px] max-h-[var(--100vh)]">
       <div className="font-medium text-black-500 text-[24px] text-center mb-[30px]">
-        Tải xuống biên lai
+        Download receipt
         <br />
-        hoặc yêu cầu mã số thuế
+        or request a tax invoice
       </div>
       <div className="flex items-center justify-center">
         <ReceiptTaxInvoiceImage />
       </div>
+    </div>
+  );
+
+  const btnText = (
+    <div>
+      <span>Download receipt </span>
     </div>
   );
 
@@ -65,8 +71,8 @@ const ReceiptDownLoad = () => {
         isShowBackBtn={true}
         onClickBackBtn={() => router.push(`/receipt?bill_id=${bill_id}`)}
         onClickPrimaryBtn={() => router.push(`/request-tax-invoice?bill_id=${bill_id}`)}
-        primaryBtnChildren="Yêu cầu hoá đơn thuế"
-        secondaryBtnChildren={'Tải biên lai'}
+        primaryBtnChildren="Request tax invoice"
+        secondaryBtnChildren={btnText}
         onClickSecondaryBtn={handleDownloadReceipt}
         disabledPrimary={downloading || isFetching}
         disabledSecondary={downloading || isFetching}
