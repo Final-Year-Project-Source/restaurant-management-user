@@ -13,7 +13,7 @@ export const discountApi = createApi({
       providesTags: ['Discount'],
     }),
     getSingleDiscount: builder.query<any, { id: string }>({
-      query: ({ id }) => `discount?id=${id}`,
+      query: ({ id }) => `discount/${id}`,
       providesTags: ['Discount'],
     }),
   }),

@@ -60,8 +60,8 @@ export default function MenuUI() {
   });
 
   const Categories = useMemo(() => {
-    if (allCategories?.data) {
-      return [...allCategories?.data].sort((a, b) => a.name.localeCompare(b.name));
+    if (allCategories) {
+      return [...allCategories].sort((a, b) => a.name.localeCompare(b.name));
     } else {
       return [];
     }
@@ -74,11 +74,11 @@ export default function MenuUI() {
     const organizedCategories = clonedCategories
       .sort((a, b) => a.name.localeCompare(b.name))
       .map((category) => {
-        const categoryItems = products?.filter((product) => product.category_id === category._id);
+        const categoryItems = products?.filter((product) => product.category_id === category.id);
         if (categoryItems?.length > 0) {
           const sortedItems = categoryItems.sort((a, b) => a.name.localeCompare(b.name));
           return {
-            id: category._id,
+            id: category.id,
             name: category.name,
             items: sortedItems,
           };
@@ -290,11 +290,11 @@ export default function MenuUI() {
                     <Link
                       className={`${item.is_available ? 'cursor-pointer' : 'pointer-events-none'}`}
                       key={item._id}
-                      href={bill_id ? `/product?id=${item._id}&bill_id=${bill_id}` : `/product?id=${item._id}`}
+                      href={bill_id ? `/product?id=${item.id}&bill_id=${bill_id}` : `/product?id=${item.id}`}
                     >
                       <div className={index !== 0 ? 'mt-[22px]' : ''}>
                         <ProductItem
-                          id={item._id}
+                          id={item.id}
                           name={item.name}
                           image_url={item.image_url}
                           description={item.description}
@@ -320,6 +320,7 @@ export default function MenuUI() {
             >
               <Drawer title="" closable={false} placement="left" onClose={onClose} open={open} width={windowWidth}>
                 <OtherLayout
+                  isHiddenAvatar
                   isShowPrimaryButton={false}
                   isShowBackBtn={true}
                   onClickBackBtn={onClose}

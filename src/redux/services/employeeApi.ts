@@ -27,7 +27,7 @@ export const employeeApi = createApi({
     }),
     getSingleUser: builder.query<any, { id: string }>({
       query: ({ id }) => ({
-        url: `user?id=${id}`,
+        url: `user/${id}`,
         method: 'GET',
         headers: {
           'Content-Type': 'application/json',
@@ -39,7 +39,7 @@ export const employeeApi = createApi({
       query: ({ data }) => ({
         url: `user`,
         method: 'POST',
-        body: { data },
+        body: data,
         headers: {
           'Content-Type': 'application/json',
         },
@@ -48,7 +48,7 @@ export const employeeApi = createApi({
     }),
     deleteUser: builder.mutation<any, { id: string }>({
       query: ({ id }) => ({
-        url: `user?id=${id}`,
+        url: `user/${id}`,
         method: 'DELETE',
         headers: {
           'Content-Type': 'application/json',
@@ -68,7 +68,7 @@ export const employeeApi = createApi({
     }),
     reset2FA: builder.mutation<any, { id: string }>({
       query: ({ id }) => ({
-        url: `user?id=${id}`,
+        url: `user/${id}`,
         method: 'PATCH',
         headers: {
           'Content-Type': 'application/json',
@@ -81,7 +81,7 @@ export const employeeApi = createApi({
     }),
     resetPassword: builder.mutation<any, { id: string }>({
       query: ({ id }) => ({
-        url: `user?id=${id}`,
+        url: `user/${id}`,
         method: 'PATCH',
         headers: {
           'Content-Type': 'application/json',
@@ -94,12 +94,12 @@ export const employeeApi = createApi({
     }),
     updateEmployee: builder.mutation<any, { id: string; data: object }>({
       query: ({ id, data }) => ({
-        url: `user?id=${id}`,
+        url: `user/${id}`,
         method: 'PATCH',
         headers: {
           'Content-Type': 'application/json',
         },
-        body: { data },
+        body: data,
       }),
       invalidatesTags: ['User'],
     }),

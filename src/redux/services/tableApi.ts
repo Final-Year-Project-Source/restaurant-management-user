@@ -21,7 +21,7 @@ export const diningTableApi = createApi({
       providesTags: ['Dining Table'],
     }),
     getSingleDiningTable: builder.query<any, { id: string }>({
-      query: ({ id }) => `diningTable?id=${id}`,
+      query: ({ id }) => `diningTable/${id}`,
       providesTags: ['Dining Table'],
     }),
   }),
