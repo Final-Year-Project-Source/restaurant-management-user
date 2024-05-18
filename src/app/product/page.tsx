@@ -10,13 +10,13 @@ import { RootState } from '@/redux/store';
 import { OPERATOR } from '@/enums';
 import { useDispatch, useSelector } from 'react-redux';
 import { updateBasket } from '@/redux/features/basketSlice';
+import { formatPrice, getDietaryRequests } from '@/utils/commonUtils';
 import { open_sans } from '@/utils/fontUtils';
 import { Skeleton } from 'antd';
 import './skeleton.scss';
 import { useGetSingleProductQuery } from '@/redux/services/productApi';
 import { useGetSingleDiningTableQuery } from '@/redux/services/tableApi';
 import { useGetSingleDiscountQuery } from '@/redux/services/discountApi';
-import { getDietaryRequests } from '@/utils/commonUtils';
 import TextAreaInput from '@/components/input/TextArea';
 
 const Product = () => {
@@ -131,7 +131,7 @@ const Product = () => {
 
   const btnText = (
     <div>
-      <span>Add to basket</span> <span className="font-normal">・ {totalAmount}</span>
+      <span>Add to basket</span> <span className="font-normal">・ {formatPrice(totalAmount)}</span>
     </div>
   );
 
@@ -144,32 +144,32 @@ const Product = () => {
       onClickSecondaryBtn={handleAddToBasket}
       disabledSecondary={isFetching || !product}
     >
-      <div className="relative">
-        {/* <div className="bg-black-500 border-full shadow-2xl h-[236px]"> */}
-        {!image_url && (
-          <Image
-            className="rounded-full shadow-2xl mx-auto mt-[50px]"
-            src={imageURL}
-            alt="product"
-            width={260}
-            height={260}
-            loading="lazy"
-            onLoad={() => setLoadingImage(false)}
-            onError={() => {
-              setImageURL('/assets/images/product-default.png');
-              setLoadingImage(false);
-            }}
-          />
-        )}
-        {(loadingImage || isFetching) && (
-          <Skeleton.Avatar
-            className="absolute top-0 right-1/2 transform translate-x-1/2"
-            size={273}
-            active
-            style={{ backgroundColor: '#e5e5e5' }}
-          />
-        )}
-        {/* </div> */}
+      <div className="relative h-full">
+        <div className="bg-black-500 h-[228px]">
+          {image_url && (
+            <Image
+              className="absolute top-[40px] right-1/2 transform translate-x-1/2"
+              src={imageURL}
+              alt="product"
+              width={260}
+              height={260}
+              loading="lazy"
+              onLoad={() => setLoadingImage(false)}
+              onError={() => {
+                setImageURL('/assets/images/product-default.png');
+                setLoadingImage(false);
+              }}
+            />
+          )}
+          {(loadingImage || isFetching) && (
+            <Skeleton.Avatar
+              className="absolute top-[24px] right-1/2 transform translate-x-1/2"
+              size={273}
+              active
+              style={{ backgroundColor: '#e5e5e5' }}
+            />
+          )}
+        </div>
         {isFetching ? (
           <Skeleton className="product-skeleton-paragraph px-6 pt-[88px] pb-[30px]" active paragraph={{ rows: 3 }} />
         ) : (
@@ -199,7 +199,7 @@ const Product = () => {
                 groupName="Dietary requests"
                 options={
                   getDietaryRequests((product as any)?.dietary_restrictions || [])?.map((label: any) => ({
-                    label: 'Make it' + label,
+                    label: 'Make it ' + label,
                   })) ?? []
                 }
                 onChange={(value) => {

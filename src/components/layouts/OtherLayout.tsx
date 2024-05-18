@@ -15,6 +15,7 @@ export interface OtherLayoutProps extends FooterProps {
   isShowBackBtn?: boolean;
   isTextRequestTaxInvoice?: boolean;
   disabledBackBtn?: boolean;
+  isHiddenAvatar?: boolean;
 }
 
 const OtherLayout: FC<OtherLayoutProps> = ({
@@ -32,6 +33,7 @@ const OtherLayout: FC<OtherLayoutProps> = ({
   onClickBackBtn,
   onClickDownBtn,
   disabledBackBtn,
+  isHiddenAvatar = false,
 }) => {
   const otherLayoutBodyRef = useRef(null);
   const { scrollTop, scrollBottom } = useScrollbarState(otherLayoutBodyRef);
@@ -57,13 +59,15 @@ const OtherLayout: FC<OtherLayoutProps> = ({
           {title}
         </span>
         {!isShowBackBtn && <IconButton icon={<DownloadIcon />} onClick={onClickDownBtn} />}
-        <Avatar
-          className="cursor-pointer bg-white text-black-500 mr-4"
-          size={48}
-          onClick={() => router.push('/setting')}
-        >
-          {/* {session?.user.name[0].toUpperCase()} */}
-        </Avatar>
+        {/* {!isHiddenAvatar && (
+          <Avatar
+            className="cursor-pointer bg-white text-black-500 mr-4"
+            size={48}
+            onClick={() => router.push('/setting')}
+          >
+            {session?.user.name[0].toUpperCase()}
+          </Avatar>
+        )} */}
       </div>
       <div ref={otherLayoutBodyRef} className={`overflow-y-auto max-h-screen-${headerFooterHeight}`}>
         {children}

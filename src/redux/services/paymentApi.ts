@@ -19,9 +19,7 @@ export const paymentApi = createApi({
       query: ({ data }) => ({
         url: 'payment',
         method: 'POST',
-        body: {
-          data,
-        },
+        body: data,
       }),
       invalidatesTags: ['Payment'],
     }),

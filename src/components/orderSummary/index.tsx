@@ -1,3 +1,4 @@
+import { formatPrice } from '@/utils/commonUtils';
 import { open_sans } from '@/utils/fontUtils';
 import { FC } from 'react';
 
@@ -9,7 +10,6 @@ export interface OrderSummaryProps {
   className?: string;
   discountAmount?: number;
   discount?: any;
-  totalItems?: number;
 }
 
 const OrderSummary: FC<OrderSummaryProps> = ({
@@ -20,11 +20,10 @@ const OrderSummary: FC<OrderSummaryProps> = ({
   total,
   className,
   discount,
-  totalItems,
 }) => {
   const discount_text = discount
     ? discount?.type === 'FIXED_AMOUNT'
-      ? `฿${discount?.value}`
+      ? `฿${formatPrice(discount?.value)}`
       : `${discount?.value}%`
     : null;
   return (
@@ -32,27 +31,26 @@ const OrderSummary: FC<OrderSummaryProps> = ({
       <div className={`text-[10px] font-normal ${open_sans.className}`}>
         {discountAmount! > 0 && (
           <div className="flex items-center justify-between ">
-            <span>{discount_text} Giảm giá </span>
-            <span>-{discountAmount}</span>
+            <span>{discount_text} Discount </span>
+            <span>-{formatPrice(discountAmount || 0)}</span>
           </div>
         )}
         <div className="flex items-center justify-between ">
-          <div> Tổng cộng (`${totalItems} món`) </div>
-
-          <span>{subTotal}</span>
+          <span>Subtotal</span>
+          <span>{formatPrice(subTotal)}</span>
         </div>
         <div className="flex items-center justify-between">
-          <span>10% Phí dịch vụ</span>
-          <span>{serviceCharge}</span>
+          <span>10% Service Charge</span>
+          <span>{formatPrice(serviceCharge)}</span>
         </div>
         <div className="flex items-center justify-between">
           <span>7% VAT</span>
-          <span>{vat}</span>
+          <span>{formatPrice(vat)}</span>
         </div>
       </div>
       <div className="flex items-center justify-between text-sm  font-normal">
-        <span>Thành tiền</span>
-        <span>{total}</span>
+        <span>Total</span>
+        <span>{formatPrice(total)}</span>
       </div>
     </div>
   );

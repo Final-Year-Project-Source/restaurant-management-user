@@ -38,7 +38,6 @@ export default function AdminLoginForm() {
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>, field: keyof AdminLoginFormProps) => {
     const { value } = e.target;
-    console.log({ value });
 
     setLoginForm({
       ...loginForm,

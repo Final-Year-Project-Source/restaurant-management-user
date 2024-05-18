@@ -13,16 +13,14 @@ export const feedbackApi = createApi({
       providesTags: ['Feedback'],
     }),
     getSingleFeedback: builder.query<any, { id: string }>({
-      query: ({ id }) => `feedback?id=${id}`,
+      query: ({ id }) => `feedback/${id}`,
       providesTags: ['Feedback'],
     }),
     createFeedback: builder.mutation<any, { data: any }>({
       query: ({ data }) => ({
         url: 'feedback',
         method: 'POST',
-        body: {
-          data,
-        },
+        body: data,
       }),
       invalidatesTags: ['Feedback'],
     }),
@@ -30,9 +28,7 @@ export const feedbackApi = createApi({
       query: ({ data }) => ({
         url: 'feedback',
         method: 'PUT',
-        body: {
-          data,
-        },
+        body: data,
       }),
       invalidatesTags: ['Feedback'],
     }),

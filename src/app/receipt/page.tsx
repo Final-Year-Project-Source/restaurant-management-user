@@ -10,14 +10,20 @@ const Receipt = () => {
   const bill_id = searchParams.get('bill_id');
   const { data: getSingleOrder, isFetching } = useGetSingleBillQuery({ id: bill_id || '' });
 
+  const btnText = (
+    <div>
+      <span>Start ordering again </span>
+    </div>
+  );
+
   return (
     <OtherLayout
       isShowPrimaryButton={false}
       onClickDownBtn={() => router.push(`/receipt/receipt-download?bill_id=${bill_id}`)}
       isShowBackBtn={false}
-      secondaryBtnChildren={'Bắt đầu đặt món lại'}
+      secondaryBtnChildren={btnText}
       onClickSecondaryBtn={() => router.push('/menu')}
-      title="Biên lai"
+      title="Receipt"
     >
       <ReceiptPage receiptData={getSingleOrder?.data} isLoading={isFetching} />
     </OtherLayout>

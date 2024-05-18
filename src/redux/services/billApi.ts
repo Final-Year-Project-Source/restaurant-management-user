@@ -19,16 +19,14 @@ export const billApi = createApi({
       providesTags: ['Bill'],
     }),
     getSingleBill: builder.query<any, { id: string }>({
-      query: (arg) => `bill?id=${arg.id}`,
+      query: (arg) => `bill/${arg.id}`,
       providesTags: ['Bill'],
     }),
     addBill: builder.mutation<any, { data: any }>({
       query: ({ data }) => ({
         url: 'bill',
         method: 'POST',
-        body: {
-          data,
-        },
+        body: data,
       }),
       invalidatesTags: ['Bill'],
     }),
@@ -37,9 +35,7 @@ export const billApi = createApi({
       query: ({ data }) => ({
         url: 'bill',
         method: 'PUT',
-        body: {
-          data,
-        },
+        body: data,
         headers: {
           'Content-Type': 'application/json',
         },
@@ -48,7 +44,7 @@ export const billApi = createApi({
     }),
     deleteBill: builder.mutation<any, { data: any }>({
       query: ({ data }) => ({
-        url: `bill?id=${data.id}`,
+        url: `bill/${data.id}`,
         method: 'DELETE',
         body: {
           data,
@@ -63,9 +59,7 @@ export const billApi = createApi({
       query: ({ data }) => ({
         url: 'feedback',
         method: 'POST',
-        body: {
-          data,
-        },
+        body: data,
       }),
       invalidatesTags: ['Bill'],
     }),
@@ -73,9 +67,7 @@ export const billApi = createApi({
       query: ({ data }) => ({
         url: 'taxinvoice',
         method: 'POST',
-        body: {
-          data,
-        },
+        body: data,
       }),
       invalidatesTags: ['Bill'],
     }),

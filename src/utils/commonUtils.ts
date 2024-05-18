@@ -54,3 +54,13 @@ export const isValidEmail = (email: string) => {
   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
   return emailRegex.test(email);
 };
+
+export const formatPrice = (price: number | string) => {
+  if (!price) return '0.00';
+
+  const roundedPrice = (Math.round(Number(price) * 100) / 100).toFixed(2);
+
+  return parseFloat(roundedPrice).toLocaleString('en-US', {
+    minimumFractionDigits: 2,
+  });
+};
