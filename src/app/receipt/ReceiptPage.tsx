@@ -32,7 +32,7 @@ const ReceiptPage = ({
   const discount = receiptData?.discount_info;
   const discount_text = discount
     ? discount?.type === 'FIXED_AMOUNT'
-      ? `฿${formatPrice(discount?.value)}`
+      ? `VND${formatPrice(discount?.value)}`
       : `${discount?.value}%`
     : null;
   let Items = [];

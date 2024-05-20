@@ -14,6 +14,7 @@ import SearchInput from '../input/searchInput';
 import { useScrollbarState } from '../hooks/useScrollbarState';
 import { Avatar } from 'antd';
 import { useRouter } from 'next/navigation';
+import { useWindowDimensions } from '../hooks/useWindowDimensions';
 
 export interface MenuLayoutProps extends FooterProps {
   children?: React.ReactNode;
@@ -54,6 +55,7 @@ const MenuLayout: FC<MenuLayoutProps> = ({
   const menuFilterReducer = useSelector((state: RootState) => state.menuFilterReducer);
   const [menuFilter, setMenuFilter] = useState<any>();
   const { scrollBottom } = useScrollbarState(menuLayoutRef);
+  const { height } = useWindowDimensions();
 
   const filterProtein = useMemo(() => menuFilter?.protein || ([] as CheckboxValueType[]), [menuFilter]);
   const filterDietaryRestrictions = useMemo(
@@ -125,7 +127,7 @@ const MenuLayout: FC<MenuLayoutProps> = ({
   );
 
   return (
-    <main ref={menuLayoutRef} className="overflow-y-auto h-full max-h-screen-85">
+    <main ref={menuLayoutRef} className="overflow-y-auto h-full" style={{ height: height - 85 }}>
       <div className={`flex flex-col ${isEmptyData ? 'h-full' : ''}`}>
         <div className={`w-full flex flex-row space-x-[9px] pt-[15px] pb-[10px] px-[24px]`}>
           <SearchInput
@@ -143,13 +145,13 @@ const MenuLayout: FC<MenuLayoutProps> = ({
               </span>
             )}
           </div>
-          <Avatar
+          {/* <Avatar
             className="cursor-pointer bg-white text-black-500 mr-4"
             size={48}
             onClick={() => router.push('/setting')}
           >
-            {/* {session?.user.name[0].toUpperCase()} */}
-          </Avatar>
+            {session?.user.name[0].toUpperCase()}
+          </Avatar> */}
         </div>
         <div
           ref={categoryBarRef}
