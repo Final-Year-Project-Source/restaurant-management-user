@@ -2,8 +2,8 @@
 import React from 'react';
 import CountButton from '@/components/button/CountButton';
 import { open_sans } from '@/utils/fontUtils';
-import ProductImage from '../productImage';
-import Tag from '../tag';
+import ProductImage from '../ProductImage';
+import Tag from '../Tag';
 
 interface ItemsProps {
   id: string;

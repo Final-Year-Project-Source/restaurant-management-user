@@ -165,7 +165,7 @@ const Basket = () => {
         createPayment({ data: { bill_id: response.data.id } })
           .unwrap()
           .then((response) => {
-            router.push(response.data.paymentLink);
+            router.push(response.data.checkoutUrl);
           });
       })
       .catch((error) => toast.error(error.data.message));
@@ -363,27 +363,27 @@ const Basket = () => {
                 createPayment({ data: { bill_id: bill_id } })
                   .unwrap()
                   .then((response) => {
-                    router.push(response.data.paymentLink);
+                    router.push(response?.data?.checkoutUrl);
                   })
                   .catch((error) => {
                     setLoading(false);
-                    toast.error(error.data.message);
+                    toast.error(error?.data?.message);
                   });
               })
               .catch((error) => {
                 setLoading(false);
-                toast.error(error.data.message);
+                toast.error(error?.data?.message);
               });
           } else {
             createPayment({ data: { bill_id: bill_id } })
               .unwrap()
               .then((response) => {
-                router.push(response.data.paymentLink);
+                router.push(response.data.checkoutUrl);
                 dispatch(resetBasket());
               })
               .catch((error) => {
                 setLoading(false);
-                toast.error(error.data.message);
+                toast.error(error?.data?.message);
               });
           }
         } else {

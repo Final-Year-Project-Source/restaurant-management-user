@@ -10,6 +10,7 @@ import { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import LoadingIndicator from '@/components/LoadingIndicator';
 import { useGetSingleBillQuery } from '@/redux/services/billApi';
+import { formatPrice } from '@/utils/commonUtils';
 
 const Confirmation = () => {
   const router = useRouter();
@@ -34,7 +35,7 @@ const Confirmation = () => {
   const discount = bill?.discount_info;
   const discount_text = discount
     ? discount.type === 'FIXED_AMOUNT'
-      ? `฿${discount?.value}`
+      ? `${formatPrice(discount?.value)} VND`
       : `${discount?.value}%`
     : null;
   const dispatch = useDispatch();
@@ -80,25 +81,25 @@ const Confirmation = () => {
               {totalDiscount > 0 && (
                 <div className="flex items-center justify-between ">
                   <span>{discount_text} Discount </span>
-                  <span>-{totalDiscount}</span>
+                  <span>-{formatPrice(totalDiscount)}</span>
                 </div>
               )}
               <div className="flex items-center justify-between">
                 <div> Subtotal </div>
-                <div> {subTotal} </div>
+                <div> {formatPrice(subTotal)} </div>
               </div>
               <div className="flex items-center justify-between">
                 <div> 10% Service Charge </div>
-                <div> {serviceCharge10} </div>
+                <div> {formatPrice(serviceCharge10)} </div>
               </div>
               <div className="flex items-center justify-between">
                 <div> 7% VAT </div>
-                <div> {vat7} </div>
+                <div> {formatPrice(vat7)} </div>
               </div>
             </div>
             <div className="text-[14px] flex items-center mt-[7px] justify-between">
               <div> Total </div>
-              <div> {bill?.total} </div>
+              <div> {formatPrice(bill?.total)} </div>
             </div>
           </div>
         </>
@@ -109,7 +110,7 @@ const Confirmation = () => {
   );
   const btnText = (
     <div>
-      <span>Pay now </span> <span className="font-normal">・ Total {bill?.total}</span>
+      <span>Pay now </span> <span className="font-normal">・ Total {formatPrice(bill?.total)}</span>
     </div>
   );
 
@@ -134,7 +135,7 @@ const Confirmation = () => {
           .then((res) => {
             setIsLoading(true);
             dispatch(resetBasket());
-            router.push(`${res.data.paymentLink}`);
+            router.push(`${res.data.checkoutUrl}`);
           });
       }}
       title="Confirmation"

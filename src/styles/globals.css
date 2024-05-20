@@ -65,3 +65,15 @@
 ::-webkit-scrollbar-thumb:hover {
   background: #858585;
 }
+
+.max-h-screen-170px {
+  max-height: calc(var(--100vh) - 170px);
+}
+
+.max-h-screen-243px {
+  max-height: calc(var(--100vh) - 243px);
+}
+
+.max-h-screen-211px {
+  max-height: calc(var(--100vh) - 211px);
+}
