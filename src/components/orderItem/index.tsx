@@ -7,7 +7,7 @@ import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { CountButton } from '../button';
 import CustomizedModal from '../modal/CustomizedModal';
-import ProductImage from '../productImage';
+import ProductImage from '../ProductImage';
 
 interface ItemsProps {
   name: string;
