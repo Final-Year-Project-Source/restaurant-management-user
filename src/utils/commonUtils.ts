@@ -55,12 +55,10 @@ export const isValidEmail = (email: string) => {
   return emailRegex.test(email);
 };
 
-export const formatPrice = (price: number | string) => {
-  if (!price) return '0.00';
+export const formatPrice = (price: number | string): string => {
+  if (!price) return '0';
 
-  const roundedPrice = (Math.round(Number(price) * 100) / 100).toFixed(2);
+  const roundedPrice = Math.round(Number(price));
 
-  return parseFloat(roundedPrice).toLocaleString('en-US', {
-    minimumFractionDigits: 2,
-  });
+  return roundedPrice.toLocaleString('en-US').replace(/,/g, '.');
 };

@@ -1,0 +1,20 @@
+{
+  "/basket/page": "/basket",
+  "/confirmation/page": "/confirmation",
+  "/feedback/page": "/feedback",
+  "/feedback/rating/page": "/feedback/rating",
+  "/_not-found": "/_not-found",
+  "/favicon.ico/route": "/favicon.ico",
+  "/menu/page": "/menu",
+  "/feedback/rating/thank-you/page": "/feedback/rating/thank-you",
+  "/forgot-password/page": "/forgot-password",
+  "/login/page": "/login",
+  "/page": "/",
+  "/product/page": "/product",
+  "/receipt/receipt-download/page": "/receipt/receipt-download",
+  "/receipt/page": "/receipt",
+  "/request-tax-invoice/page": "/request-tax-invoice",
+  "/register/page": "/register",
+  "/setting/page": "/setting",
+  "/ui-components/page": "/ui-components"
+}

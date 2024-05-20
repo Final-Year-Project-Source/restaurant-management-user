@@ -1,7 +1,7 @@
 'use client';
 import LoadingIndicator from '@/components/LoadingIndicator';
 import OrderItem from '@/components/OrderItem';
-import Stars from '@/components/stars';
+import Stars from '@/components/Stars';
 import { formatPrice } from '@/utils/commonUtils';
 import { open_sans } from '@/utils/fontUtils';
 import { useRouter, useSearchParams } from 'next/navigation';
@@ -32,7 +32,7 @@ const ReceiptPage = ({
   const discount = receiptData?.discount_info;
   const discount_text = discount
     ? discount?.type === 'FIXED_AMOUNT'
-      ? `฿${formatPrice(discount?.value)}`
+      ? `VND${formatPrice(discount?.value)}`
       : `${discount?.value}%`
     : null;
   let Items = [];

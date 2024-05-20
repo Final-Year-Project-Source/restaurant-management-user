@@ -2,7 +2,7 @@
 import TextAreaInput from '@/components/input/TextArea';
 import OtherLayout from '@/components/layouts/OtherLayout';
 import LoadingIndicator from '@/components/LoadingIndicator';
-import Stars from '@/components/stars';
+import Stars from '@/components/Stars';
 import { useCreateFeedbackMutation } from '@/redux/services/billApi';
 import { open_sans } from '@/utils/fontUtils';
 import { useRouter, useSearchParams } from 'next/navigation';
