@@ -32,7 +32,7 @@ const ReceiptPage = ({
   const discount = receiptData?.discount_info;
   const discount_text = discount
     ? discount?.type === 'FIXED_AMOUNT'
-      ? `VND${formatPrice(discount?.value)}`
+      ? `${formatPrice(discount?.value)} vnd`
       : `${discount?.value}%`
     : null;
   let Items = [];
@@ -51,10 +51,10 @@ const ReceiptPage = ({
         <div>
           {receiptData?.feedback_info ? (
             <>
-              <div className="font-medium text-black-500 text-[24px] text-center mb-3">
+              <div className="font-medium text-black-500 text-[28px] text-center mb-3">
                 All settled, {receiptData?.customer_name}
               </div>
-              <div className="text-black-500 text-[14px] text-center mb-4">
+              <div className="text-black-500 text-[18px] text-center mb-4">
                 Thank you so much for visiting us,
                 <br />
                 and thank you for sharing your thoughts!
@@ -62,10 +62,10 @@ const ReceiptPage = ({
             </>
           ) : (
             <>
-              <div className="font-medium text-black-500 text-[24px] text-center mb-3">
+              <div className="font-medium text-black-500 text-[28px] text-center mb-3">
                 All settled, {receiptData?.customer_name} 🙏
               </div>
-              <div className="text-black-500 text-[14px] text-center mb-4">
+              <div className="text-black-500 text-[18px] text-center mb-4">
                 Thank you so much for visiting us.
                 <br />
                 How was your overall experience today?
@@ -96,7 +96,7 @@ const ReceiptPage = ({
           })}
 
           <div className="mt-[20px] ml-[108px] pb-[40px]">
-            <div className={`text-[10px] text-black-500 space-y-[3px] ${open_sans.className}`}>
+            <div className={`text-[13px] text-black-500 space-y-[3px] ${open_sans.className}`}>
               {totalDiscount > 0 && (
                 <div className="flex items-center justify-between ">
                   <span>{discount_text} Discount </span>
@@ -116,7 +116,7 @@ const ReceiptPage = ({
                 <div> {formatPrice(vat7)} </div>
               </div>
             </div>
-            <div className="text-[14px] flex items-center mt-[7px] justify-between ">
+            <div className="text-[18px] flex items-center mt-[7px] justify-between ">
               <div> Total </div>
               <div> {formatPrice(receiptData?.total)} </div>
             </div>

@@ -35,7 +35,7 @@ const Confirmation = () => {
   const discount = bill?.discount_info;
   const discount_text = discount
     ? discount.type === 'FIXED_AMOUNT'
-      ? `${formatPrice(discount?.value)} VND`
+      ? `${formatPrice(discount?.value)} vnd`
       : `${discount?.value}%`
     : null;
   const dispatch = useDispatch();
@@ -51,10 +51,10 @@ const Confirmation = () => {
     <div className="px-4 pt-[13px] max-h-[var(--100vh)]">
       {bill?.orders?.length > 0 && (
         <>
-          <div className="text-center text-[24px] font-medium text-black-500">
+          <div className="text-center text-[28px] font-medium text-black-500">
             We’ve got your order, {bill?.customer_name}
           </div>
-          <div className="text-center text-[14px] text-black-500 mt-[12px]">
+          <div className="text-center text-[18px] text-black-500 mt-[12px]">
             Speak to one of our team members if you have any questions about your order.
           </div>
           <div className="flex font-medium text-black-400 mt-[30px]">Order summary</div>
@@ -77,7 +77,7 @@ const Confirmation = () => {
           })}
 
           <div className="ml-[108px] pb-[40px]">
-            <div className={`text-[10px] text-black-500 space-y-[3px] ${open_sans.className}`}>
+            <div className={`text-[13px] text-black-500 space-y-[3px] ${open_sans.className}`}>
               {totalDiscount > 0 && (
                 <div className="flex items-center justify-between ">
                   <span>{discount_text} Discount </span>
@@ -97,7 +97,7 @@ const Confirmation = () => {
                 <div> {formatPrice(vat7)} </div>
               </div>
             </div>
-            <div className="text-[14px] flex items-center mt-[7px] justify-between">
+            <div className="text-[18px] flex items-center mt-[7px] justify-between">
               <div> Total </div>
               <div> {formatPrice(bill?.total)} </div>
             </div>

@@ -60,12 +60,12 @@ export default function ForgotPasswordForm() {
   }, [resendTimeout, sent]);
   const sendEmailForm = (
     <div className="flex flex-col bg-white justify-center items-center w-full sm:max-w-xl space-y-3 p-10 rounded-xl shadow-2xl max-[768px]:m-2">
-      <div className="text-[24px] font-bold text-black-500 my-3">Forgot Password</div>
-      <div className="text-[14px] text-black-500 my-5">
+      <div className="text-[28px] font-bold text-black-500 my-3">Forgot Password</div>
+      <div className="text-[18px] text-black-500 my-5">
         To reset your password, please provide the email address associated with your account.
       </div>
       <div className="w-full">
-        <div className="text-[14px] font-bold text-black-500 my-3">Email</div>
+        <div className="text-[18px] font-bold text-black-500 my-3">Email</div>
         <InputText
           placeholder="Email"
           disabled={load || isSending}
@@ -74,13 +74,13 @@ export default function ForgotPasswordForm() {
         />
       </div>
       <div className="w-full">
-        {errorEmail ? <div className="text-red-500 text-[14px]">{errorEmail}</div> : <div className="h-[10px]"></div>}
+        {errorEmail ? <div className="text-red-500 text-[18px]">{errorEmail}</div> : <div className="h-[10px]"></div>}
         <Button onClick={handleSubmitEmail} disabled={load || isSending} variant="secondary" className="mt-1">
           Submit
         </Button>
       </div>
       <div
-        className={`text-[14px] text-right text-black-500 cursor-pointer w-full italic hover:underline ${
+        className={`text-[18px] text-right text-black-500 cursor-pointer w-full italic hover:underline ${
           isSending && `pointer-events-none`
         }`}
         onClick={() => router.push('/login')}
@@ -92,11 +92,11 @@ export default function ForgotPasswordForm() {
   );
   const EmailSentContent = (
     <div className="flex flex-col bg-white justify-center items-center w-full sm:max-w-xl space-y-3 p-10 rounded-xl shadow-2xl max-[768px]:m-2">
-      <div className="text-[24px] font-bold text-black-500 my-3">Reset Password</div>
-      <div className="text-[14px] text-black-500 my-5">
+      <div className="text-[28px] font-bold text-black-500 my-3">Reset Password</div>
+      <div className="text-[18px] text-black-500 my-5">
         A link to reset your password has been sent to your email address. Please check your email.
       </div>
-      <div className="text-[14px] text-black-500 w-full">
+      <div className="text-[18px] text-black-500 w-full">
         Didnt receive the email?
         {resendTimeout > 0 ? (
           <span className="text-gray-500"> Resend in {resendTimeout} seconds</span>
@@ -111,7 +111,7 @@ export default function ForgotPasswordForm() {
         )}
       </div>
       <div
-        className={`text-[14px] text-black-500 hover:underline cursor-pointer w-full italic ${
+        className={`text-[18px] text-black-500 hover:underline cursor-pointer w-full italic ${
           isSending && `pointer-events-none`
         }`}
         onClick={() => setSent(false)}
@@ -119,7 +119,7 @@ export default function ForgotPasswordForm() {
         Change to another email address
       </div>
       <div
-        className={`text-[14px] text-black-500 hover:underline cursor-pointer w-full italic ${
+        className={`text-[18px] text-black-500 hover:underline cursor-pointer w-full italic ${
           isSending && `pointer-events-none`
         }`}
         onClick={() => router.push('/login')}

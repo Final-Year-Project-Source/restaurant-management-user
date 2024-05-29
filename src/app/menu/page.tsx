@@ -282,8 +282,8 @@ export default function MenuUI() {
                 key={category?.id}
                 className={`flex flex-col justify-start w-full mb-[40px] ${index === 0 ? 'pt-[5px]' : ''}`}
               >
-                <p id={category?.id} className="text-[24px] font-medium text-black-500 leading-7 category--item">
-                  {category?.name}
+                <p id={category?.id} className="text-[24px] font-medium text-red-50 leading-7 category--item">
+                  {`${category?.name} (${category?.items.length})`}
                 </p>
                 <div className="flex flex-col w-full mt-[30px]">
                   {category?.items?.map((item, index) => (

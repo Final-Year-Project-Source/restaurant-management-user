@@ -19,7 +19,7 @@
 
   --grey-100: #ededed;
 
-  --red-100: #fa4a0c;
+  --red-100: #a82825;
   --100vh: 100vh;
 }
 
@@ -36,6 +36,13 @@
 }
 
 @layer utilities {
+  .customized-menu {
+    &::-webkit-scrollbar {
+      display: none;
+      -ms-overflow-style: none; /* IE and Edge */
+      scrollbar-width: none; /* Firefox */
+    }
+  }
   @media (max-width: 960px) {
     ::-webkit-scrollbar {
       display: none;
@@ -76,4 +83,8 @@
 
 .max-h-screen-211px {
   max-height: calc(var(--100vh) - 211px);
+}
+
+.customized-background {
+  background-image: url('/assets/images/background.png');
 }
