@@ -15,7 +15,7 @@ const ReceiptDownLoadedImage = ({ className, bill }: { className?: string; bill:
   let Items = [];
   const discount_text = discount
     ? discount.type === 'FIXED_AMOUNT'
-      ? `VND${discount?.value}`
+      ? `${discount?.value} vnd`
       : `${discount?.value}%`
     : null;
   if (bill?.orders.length > 0) {
@@ -31,13 +31,13 @@ const ReceiptDownLoadedImage = ({ className, bill }: { className?: string; bill:
         <Image priority src="/assets/icons/logo.svg" alt="logo" width={100} height={100} />
 
         <span
-          className={`text-center leading-normal max-w-[260px] text-black-500 text-[10px] mt-[20.78px] mb-[30px] font-normal ${open_sans.className}`}
+          className={`text-center leading-normal max-w-[260px] text-black-500 text-[13px] mt-[20.78px] mb-[30px] font-normal ${open_sans.className}`}
         >
           Bella OnoJie. 174 Nguyen Luong Bang, Hoa Khanh bac, Lien Chieu, Da Nang, Viet Nam. Tax ID : 0235563109861.
           Tel: 092 123 8378
         </span>
 
-        <div className="h-[28px] font-medium leading-normal mb-[12px] text-[24px] text-black-500">Receipt</div>
+        <div className="h-[28px] font-medium leading-normal mb-[12px] text-[28px] text-black-500">Receipt</div>
 
         <div className="h-[17px] leading-normal">
           {moment(bill?.receipt_data?.created_at).format('DD MMMM YYYY, HH:mm')}
@@ -64,7 +64,7 @@ const ReceiptDownLoadedImage = ({ className, bill }: { className?: string; bill:
       })}
 
       <div className="mt-[20px] ml-[108px] pb-[60px]">
-        <div className={`text-[10px] text-black-500 space-y-[3px] ${open_sans.className}`}>
+        <div className={`text-[13px] text-black-500 space-y-[3px] ${open_sans.className}`}>
           {totalDiscount > 0 && (
             <div className="flex items-center justify-between ">
               <span>{discount_text} Discount </span>
@@ -84,7 +84,7 @@ const ReceiptDownLoadedImage = ({ className, bill }: { className?: string; bill:
             <div> {formatPrice(vat7)} </div>
           </div>
         </div>
-        <div className="text-[14px] flex items-center mt-[7px] justify-between ">
+        <div className="text-[18px] flex items-center mt-[7px] justify-between ">
           <div> Total </div>
           <div> {formatPrice(bill?.total)} </div>
         </div>

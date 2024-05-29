@@ -14,8 +14,8 @@ const Confirmation = () => {
   };
   const body = (
     <div className="px-6 pt-[13px]">
-      <div className="font-medium text-black-500 text-[24px] text-center mb-3">Thank you, {bill?.customer_name} 🙏</div>
-      <div className="text-black-500 text-[14px] text-center mb-4">We’ll be in touch soon!</div>
+      <div className="font-medium text-black-500 text-[28px] text-center mb-3">Thank you, {bill?.customer_name} 🙏</div>
+      <div className="text-black-500 text-[18px] text-center mb-4">We’ll be in touch soon!</div>
     </div>
   );
   const btnText = (

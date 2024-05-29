@@ -106,14 +106,14 @@ export default function AdminLoginForm() {
   return (
     <div className="w-full sm:max-w-xl p-10 space-y-[5px] ">
       <div>
-        <div className="font-medium text-[16px] mb-1 text-black-500 "> Email </div>
+        <div className="font-medium text-[20px] mb-1 text-black-500 "> Email </div>
         <div>
           <InputText disabled={isLoading || load} onChange={(e) => handleInputChange(e, 'email')} placeholder="Email" />
         </div>
-        {errors.email ? <p className="text-red-400 text-[14px]">{errors.email}</p> : <p className="h-[21px]"></p>}
+        {errors.email ? <p className="text-red-400 text-[18px]">{errors.email}</p> : <p className="h-[21px]"></p>}
       </div>
       <div>
-        <div className="font-medium text-[16px] mb-1 text-black-500 ">Password </div>
+        <div className="font-medium text-[20px] mb-1 text-black-500 ">Password </div>
         <div>
           <InputPasswordText
             onKeyDown={handleKeyDown}
@@ -123,9 +123,9 @@ export default function AdminLoginForm() {
           />
         </div>
         {errorLogin ? (
-          <p className="text-red-400 text-[14px]">{errorLogin}</p>
+          <p className="text-red-400 text-[18px]">{errorLogin}</p>
         ) : errors.password ? (
-          <p className="text-red-400 text-[14px]">{errors.password}</p>
+          <p className="text-red-400 text-[18px]">{errors.password}</p>
         ) : (
           <p className="h-[21px]"></p>
         )}
@@ -136,7 +136,7 @@ export default function AdminLoginForm() {
         </Button>
       </div>
       <label
-        className="text-[14px] flex justify-end italic ... underline"
+        className="text-[18px] flex justify-end italic ... underline"
         onClick={() => router.push('/forgot-password')}
       >
         Forgot password

@@ -127,7 +127,7 @@ const MenuLayout: FC<MenuLayoutProps> = ({
   );
 
   return (
-    <main ref={menuLayoutRef} className="overflow-y-auto h-full" style={{ height: height - 85 }}>
+    <main ref={menuLayoutRef} className="overflow-y-auto h-full " style={{ height: height - 85 }}>
       <div className={`flex flex-col ${isEmptyData ? 'h-full' : ''}`}>
         <div className={`w-full flex flex-row space-x-[9px] pt-[15px] pb-[10px] px-[24px]`}>
           <SearchInput
@@ -155,7 +155,7 @@ const MenuLayout: FC<MenuLayoutProps> = ({
         </div>
         <div
           ref={categoryBarRef}
-          className={`sticky shrink-0 top-0 bg-grey-100 z-10 pl-[24px] pt-[20px] pb-[19px] flex space-x-[14px] overflow-auto ${
+          className={`customized-menu sticky shrink-0 top-0 customized-background z-10 pl-[24px] pt-[20px] pb-[19px] flex space-x-[14px] overflow-auto ${
             categoryBarRef?.current && isSticky ? 'shadow-medium-bottom' : ''
           }`}
         >

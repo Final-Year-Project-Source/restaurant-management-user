@@ -9,7 +9,7 @@ export const DIETARY_RESTRICTIONS = {
 };
 export const PROTEINS = {
   groupName: 'Protein',
-  options: [{ label: 'Chicken' }, { label: 'Pork' }, { label: 'Beef' }, { label: 'SeaFood' }, { label: 'Other' }],
+  options: [{ label: 'Chicken' }, { label: 'Pork' }, { label: 'Beef' }, { label: 'Seafood' }, { label: 'Other' }],
 };
 
 export const STICKY_HEADER_HEIGHT = 77;

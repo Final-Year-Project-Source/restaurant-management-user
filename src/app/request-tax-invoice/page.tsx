@@ -97,7 +97,7 @@ const RequestTaxInvoice = () => {
     <div className="px-4 pt-[13px] pb-[40px]">
       <div className="px-[8px] flex flex-col space-y-[20px]">
         <div>
-          <div className="font-medium text-[14px] text-black-400"> Company/recipient name </div>
+          <div className="font-medium text-[18px] text-black-400"> Company/recipient name </div>
           <div className={`mt-[10px] ${open_sans.className}`}>
             <InputText
               disabled={isLoading || isFetching}
@@ -106,11 +106,11 @@ const RequestTaxInvoice = () => {
               onChange={(e) => handleInputChange(e, 'companyName')}
               placeholder="E.g. Company Name Co., Ltd. (required)"
             />
-            {errors.companyName && <span className="text-red-400 text-[14px]">{errors.companyName}</span>}
+            {errors.companyName && <span className="text-red-400 text-[18px]">{errors.companyName}</span>}
           </div>
         </div>
         <div>
-          <div className="font-medium text-[14px] text-black-400"> Branch ID </div>
+          <div className="font-medium text-[18px] text-black-400"> Branch ID </div>
           <div className={`mt-[10px] ${open_sans.className}`}>
             <InputText
               disabled={isLoading || isFetching}
@@ -120,10 +120,10 @@ const RequestTaxInvoice = () => {
               placeholder="E.g. Head office (required)"
             />
           </div>
-          {errors.headOffice && <span className="text-red-400 text-[14px]">{errors.headOffice}</span>}
+          {errors.headOffice && <span className="text-red-400 text-[18px]">{errors.headOffice}</span>}
         </div>
         <div>
-          <div className="font-medium text-[14px] text-black-400"> Tax ID </div>
+          <div className="font-medium text-[18px] text-black-400"> Tax ID </div>
           <div className={`mt-[10px] ${open_sans.className}`}>
             <InputText
               disabled={isLoading || isFetching}
@@ -133,10 +133,10 @@ const RequestTaxInvoice = () => {
               placeholder="13-digit ID (required)"
             />
           </div>
-          {errors.taxId && <span className="text-red-400 text-[14px]">{errors.taxId}</span>}
+          {errors.taxId && <span className="text-red-400 text-[18px]">{errors.taxId}</span>}
         </div>
         <div>
-          <div className="font-medium text-[14px] text-black-400"> Address</div>
+          <div className="font-medium text-[18px] text-black-400"> Address</div>
           <div className={`mt-[10px] ${open_sans.className}`}>
             <TextAreaInput
               disabled={isLoading || isFetching}
@@ -146,7 +146,7 @@ const RequestTaxInvoice = () => {
               valuePlaceholder="Enter full address (required)"
             />
           </div>
-          {errors.address && <span className="text-red-400 text-[14px]">{errors.address}</span>}
+          {errors.address && <span className="text-red-400 text-[18px]">{errors.address}</span>}
         </div>
       </div>
     </div>

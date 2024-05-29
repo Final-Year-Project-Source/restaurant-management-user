@@ -92,11 +92,11 @@ export default function LandingPage() {
         className={`absolute flex md:flex-row md:space-x-5 max-md:flex-col max-md:space-y-5
         } md:bottom-[65%] bottom-[5%] max-md:w-full px-[50px] z-30 right-1/2 transform translate-x-1/2`}
       >
-        <Button className="md:w-[50px]" onClick={() => router.push('/login')}>
+        {/* <Button className="md:w-[50px]" onClick={() => router.push('/login')}>
           Login
-        </Button>
+        </Button> */}
 
-        <Button className="md:w-[50px]" onClick={handleOnClick} variant={isMobile ? 'primary' : 'secondary'}>
+        <Button className="md:w-[50px]" onClick={handleOnClick} variant="primary">
           Start ordering
         </Button>
       </div>
