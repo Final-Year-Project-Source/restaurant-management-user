@@ -23,12 +23,12 @@ const OrderSummary: FC<OrderSummaryProps> = ({
 }) => {
   const discount_text = discount
     ? discount?.type === 'FIXED_AMOUNT'
-      ? `${formatPrice(discount?.value)} VND`
+      ? `${formatPrice(discount?.value)} vnd`
       : `${discount?.value}%`
     : null;
   return (
     <div className={`${className || ''} flex flex-col space-y-[7px] ml-[108px] text-black-500`}>
-      <div className={`text-[10px] font-normal ${open_sans.className}`}>
+      <div className={`text-[13px] font-normal ${open_sans.className}`}>
         {discountAmount! > 0 && (
           <div className="flex items-center justify-between ">
             <span>{discount_text} Discount </span>

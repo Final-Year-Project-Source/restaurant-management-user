@@ -117,21 +117,21 @@ export default function AdminRegisterForm() {
   return (
     <div className="w-full sm:max-w-xl p-10 space-y-[5px] ">
       <div>
-        <div className="font-medium text-[16px] mb-1 text-black-500 "> Name </div>
+        <div className="font-medium text-[20px] mb-1 text-black-500 "> Name </div>
         <div>
           <InputText disabled={isLoading || load} onChange={(e) => handleInputChange(e, 'name')} placeholder="Name" />
         </div>
-        {errors.name ? <p className="text-red-400 text-[14px]">{errors.name}</p> : <p className="h-[21px]"></p>}
+        {errors.name ? <p className="text-red-400 text-[18px]">{errors.name}</p> : <p className="h-[21px]"></p>}
       </div>
       <div>
-        <div className="font-medium text-[16px] mb-1 text-black-500 "> Email </div>
+        <div className="font-medium text-[20px] mb-1 text-black-500 "> Email </div>
         <div>
           <InputText disabled={isLoading || load} onChange={(e) => handleInputChange(e, 'email')} placeholder="Email" />
         </div>
-        {errors.email ? <p className="text-red-400 text-[14px]">{errors.email}</p> : <p className="h-[21px]"></p>}
+        {errors.email ? <p className="text-red-400 text-[18px]">{errors.email}</p> : <p className="h-[21px]"></p>}
       </div>
       <div>
-        <div className="font-medium text-[16px] mb-1 text-black-500 ">Password </div>
+        <div className="font-medium text-[20px] mb-1 text-black-500 ">Password </div>
         <div>
           <InputPasswordText
             onKeyDown={handleKeyDown}
@@ -141,16 +141,16 @@ export default function AdminRegisterForm() {
           />
         </div>
         {errorLogin ? (
-          <p className="text-red-400 text-[14px]">{errorLogin}</p>
+          <p className="text-red-400 text-[18px]">{errorLogin}</p>
         ) : errors.password ? (
-          <p className="text-red-400 text-[14px]">{errors.password}</p>
+          <p className="text-red-400 text-[18px]">{errors.password}</p>
         ) : (
           <p className="h-[21px]"></p>
         )}
       </div>
 
       <div>
-        <div className="font-medium text-[16px] mb-1 text-black-500 "> Confirm password </div>
+        <div className="font-medium text-[20px] mb-1 text-black-500 "> Confirm password </div>
         <div>
           <InputPasswordText
             onKeyDown={handleKeyDown}
@@ -160,9 +160,9 @@ export default function AdminRegisterForm() {
           />
         </div>
         {errorLogin ? (
-          <p className="text-red-400 text-[14px]">{errorLogin}</p>
+          <p className="text-red-400 text-[18px]">{errorLogin}</p>
         ) : errors.confirmPassword ? (
-          <p className="text-red-400 text-[14px]">{errors.confirmPassword}</p>
+          <p className="text-red-400 text-[18px]">{errors.confirmPassword}</p>
         ) : (
           <p className="h-[21px]"></p>
         )}

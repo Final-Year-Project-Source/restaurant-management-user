@@ -16,3 +16,13 @@
     }
   }
 }
+
+.header-background {
+  background-image: url('/assets/images/food-bg.jpeg');
+
+  @media (min-width: 768px) {
+    background-image: url('/assets/images/landing-page.png');
+  }
+  // background-repeat: no-repeat;
+  background-size: cover;
+}

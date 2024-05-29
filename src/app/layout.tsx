@@ -24,7 +24,7 @@ export const viewport = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
-      <body className={`${open_sans.variable} bg-grey-100 h-screen overflow-hidden`}>
+      <body className={`${open_sans.variable} bg-grey-100 h-screen overflow-hidden customized-background`}>
         <Provider>
           <StyledComponentsRegistry>
             <ToastContainer />

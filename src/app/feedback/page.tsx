@@ -44,7 +44,7 @@ const Feedback = () => {
   };
   const body = (
     <div className="px-6 pt-[13px]">
-      <div className="text-black-500 text-[14px] text-center mb-[20px]">
+      <div className="text-black-500 text-[18px] text-center mb-[20px]">
         We strive to always provide a 5-star experience.
         <br />
         How was it for you?
@@ -53,7 +53,7 @@ const Feedback = () => {
         <Stars value={stars} onRateChange={handleRatingStars} disabled={isCreateLoading || loading} />
       </div>
 
-      <div className="font-medium text-[14px] text-black-400"> Tell us your thoughts </div>
+      <div className="font-medium text-[18px] text-black-400"> Tell us your thoughts </div>
       <div className={`mt-[10px] mb-[40px] ${open_sans.className}`}>
         <TextAreaInput
           disabled={isCreateLoading || loading}

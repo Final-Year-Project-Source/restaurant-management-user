@@ -5,6 +5,7 @@ import { Checkbox } from 'antd';
 import '@/components/checkbox/style.checkbox.css';
 import type { CheckboxValueType } from 'antd/es/checkbox/Group';
 import { open_sans } from '@/utils/fontUtils';
+import { formatPrice } from '@/utils/commonUtils';
 interface CheckboxOption {
   icon?: string;
   label: string;
@@ -25,18 +26,18 @@ const CheckboxGroup: React.FC<CheckboxGroupProps> = ({ discount, groupName, opti
   };
   return (
     <div>
-      <p className="text-[14px] font-medium mb-[11px] text-black-400">{groupName}</p>
+      <p className="text-[18px] font-medium mb-[11px] text-black-400">{groupName}</p>
       <Checkbox.Group defaultValue={defaultValue} className="flex flex-col w-full" onChange={onChangeCheckbox}>
         <div className="flex flex-col space-y-[10px]">
           {options?.map((item: CheckboxOption, index: number) => (
             <div key={index} className="flex justify-between items-center text-black-500 w-full">
               <CustomCheckbox value={item.label} icon={item?.icon?.toLowerCase()} price={item.price} />
               {item.price && (
-                <label className={`text-[14px] ${open_sans.className}`} htmlFor={`${groupName}-${index}`}>
+                <label className={`text-[18px] ${open_sans.className}`} htmlFor={`${groupName}-${index}`}>
                   {' '}
                   {`+ `}
                   {discount?.type === 'FIXED_PERCENT' && <span className="line-through"> {item.price}</span>}
-                  {` ${+item.price}`}
+                  {` ${formatPrice(item.price)} vnd`}
                 </label>
               )}
             </div>

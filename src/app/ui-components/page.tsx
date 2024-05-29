@@ -34,7 +34,7 @@ const checkboxGroupData1 = {
 
 const checkboxGroupData2 = {
   groupName: 'Protein',
-  options: [{ label: 'Chicken' }, { label: 'Pork' }, { label: 'Beef' }, { label: 'SeaFood' }, { label: 'Other' }],
+  options: [{ label: 'Chicken' }, { label: 'Pork' }, { label: 'Beef' }, { label: 'Seafood' }, { label: 'Other' }],
 };
 
 const checkboxGroupData3 = {
@@ -49,7 +49,7 @@ const checkboxGroupData3 = {
 
 const radioGroupData = {
   groupName: 'Radio group',
-  options: [{ label: 'Chicken' }, { label: 'Pork' }, { label: 'Beef' }, { label: 'SeaFood' }],
+  options: [{ label: 'Chicken' }, { label: 'Pork' }, { label: 'Beef' }, { label: 'Seafood' }],
 };
 
 export default function UIComponents() {

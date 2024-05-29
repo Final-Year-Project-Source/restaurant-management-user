@@ -115,9 +115,9 @@ const OrderItem: React.FC<ItemsProps> = ({
     <div className={`${className || ''} flex w-full`}>
       <ProductImage className="mr-[24px]" width={86} height={86} src={image_url} alt={name} />
       <div className="flex flex-col w-full">
-        <div className="text-[14px] text-black-400 ">{name}</div>
+        <div className="text-[18px] text-black-400 ">{name}</div>
         {modifiers && modifiers?.length > 0 && (
-          <div className="flex flex-col mt-[7px] text-[10px] text-black-500">
+          <div className="flex flex-col mt-[7px] text-[13px] text-black-500">
             {modifiers.map((modifier: any, index: number) => (
               <div key={index} className={`flex items-center justify-between ${open_sans.className}`}>
                 <div> Add {modifier.name}</div>
@@ -137,7 +137,7 @@ const OrderItem: React.FC<ItemsProps> = ({
           </div>
         )}
         {dietary_restrictions && dietary_restrictions?.length > 0 && (
-          <div className="flex flex-col mt-[7px] text-[10px] text-black-500">
+          <div className="flex flex-col mt-[7px] text-[13px] text-black-500">
             {dietary_restrictions.map((dietary: any, index: number) => (
               <div key={index} className={`flex items-center justify-between ${open_sans.className}`}>
                 {dietary}
@@ -146,7 +146,7 @@ const OrderItem: React.FC<ItemsProps> = ({
           </div>
         )}
         {note && (
-          <div className={`flex space-x-[5px] text-[10px] text-black-500 mt-[7px] ${open_sans.className}`}>
+          <div className={`flex space-x-[5px] text-[13px] text-black-500 mt-[7px] ${open_sans.className}`}>
             <div>Note: {note}</div>
           </div>
         )}
@@ -165,12 +165,12 @@ const OrderItem: React.FC<ItemsProps> = ({
           )}
           {(discount?.type === DISCOUNT_TYPE.FIXED_PERCENT && (
             <div className="flex space-x-[3px]">
-              <div className={`text-[14px] text-black-400 line-through`}>{formatPrice(price * newQuantity)}</div>
-              <div className="text-[14px] text-black-500">
+              <div className={`text-[18px] text-black-400 line-through`}>{formatPrice(price * newQuantity)}</div>
+              <div className="text-[18px] text-black-500">
                 {formatPrice(priceAfterDiscount || 0) || formatPrice(price * newQuantity)}
               </div>
             </div>
-          )) || <div className="text-[14px] text-black-400">{formatPrice(price * newQuantity)}</div>}
+          )) || <div className="text-[18px] text-black-400">{formatPrice(price * newQuantity)}</div>}
         </div>
 
         <CustomizedModal open={isModalOpen} title="Remove item" okText="Remove" onOk={handleOk} onCancel={handleCancel}>

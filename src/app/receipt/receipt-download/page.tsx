@@ -47,7 +47,7 @@ const ReceiptDownLoad = () => {
 
   const body = (
     <div className="px-6 pt-[13px] pb-[40px] max-h-[var(--100vh)]">
-      <div className="font-medium text-black-500 text-[24px] text-center mb-[30px]">
+      <div className="font-medium text-black-500 text-[28px] text-center mb-[30px]">
         Download receipt
         <br />
         or request a tax invoice

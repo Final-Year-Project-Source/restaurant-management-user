@@ -33,7 +33,7 @@ const CustomRadio: React.FC<CustomRadioProps> = ({ value, icon, price }) => {
                   <Icon iconName={icon} />
                 </div>
               )}
-              <div className={`text-[14px] ${open_sans.className}`}>{`${value}`}</div>
+              <div className={`text-[18px] ${open_sans.className}`}>{`${value}`}</div>
             </div>
           </div>
         </Checkbox>

@@ -17,9 +17,9 @@ const Tag: FC<Props> = ({ className, children, ...restProps }) => {
             borderRadiusSM: 7,
             defaultBg: '#fff',
             fontSizeSM: 10,
-            defaultColor: '#FA4A0C',
+            defaultColor: '#A82825',
             lineHeightSM: 2.2,
-            colorBorder: '#FA4A0C',
+            colorBorder: '#A82825',
           },
         },
       }}

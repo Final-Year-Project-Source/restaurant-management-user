@@ -24,20 +24,20 @@ const LessStarsPage = ({
 
   return (
     <div className="px-6 pt-[13px] pb-[40px]">
-      <div className="font-medium text-black-500 text-[24px] text-center mb-3">We have work to do ☹️</div>
-      <div className="text-black-500 text-[14px] text-center mb-4">
+      <div className="font-medium text-black-500 text-[28px] text-center mb-3">We have work to do ☹️</div>
+      <div className="text-black-500 text-[18px] text-center mb-4">
         We sincerely appreciate your feedback.
         <br />
         It is important for us to continually improve.
       </div>
-      <div className="text-black-500 text-[14px] text-center mb-[22px]">
+      <div className="text-black-500 text-[18px] text-center mb-[22px]">
         Can we contact you about your experience?
         <br />
         We will offer a complimentary voucher for your next visit.
       </div>
       <div className="px-[8px] flex flex-col space-y-[20px]">
         <div>
-          <div className="font-medium text-[14px] text-black-400"> Contact email </div>
+          <div className="font-medium text-[18px] text-black-400"> Contact email </div>
           <div className={`mt-[10px] ${open_sans.className}`}>
             <InputText
               disabled={disabled}
@@ -50,7 +50,7 @@ const LessStarsPage = ({
           </div>
         </div>
         <div>
-          <div className="font-medium text-[14px] text-black-400"> Contact phone </div>
+          <div className="font-medium text-[18px] text-black-400"> Contact phone </div>
           <div className={`mt-[10px] ${open_sans.className}`}>
             <InputText
               disabled={disabled}

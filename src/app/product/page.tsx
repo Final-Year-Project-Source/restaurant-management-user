@@ -18,6 +18,7 @@ import { useGetSingleProductQuery } from '@/redux/services/productApi';
 import { useGetSingleDiningTableQuery } from '@/redux/services/tableApi';
 import { useGetSingleDiscountQuery } from '@/redux/services/discountApi';
 import TextAreaInput from '@/components/input/TextArea';
+import { useWindowDimensions } from '@/components/hooks/useWindowDimensions';
 
 const Product = () => {
   const router = useRouter();
@@ -25,6 +26,7 @@ const Product = () => {
   const [notes, setNotes] = useState<string>('');
   const [selectedOptions, setSelectedOptions] = useState<any[]>([]);
   const [selectedDietaryRequests, setSelectedDietaryRequests] = useState<any[]>([]);
+  const { isMobile } = useWindowDimensions();
 
   const [totalAmount, setTotalAmount] = useState<number>(0);
   const productId = searchParams.get('id');
@@ -145,13 +147,15 @@ const Product = () => {
       disabledSecondary={isFetching || !product}
     >
       <div className="relative h-full">
-        <div className="bg-black-500 h-[228px]">
+        <div className={`h-[200px] header-background`}>
           {image_url && (
             <Image
-              className="absolute top-[40px] right-1/2 transform translate-x-1/2"
+              className={`absolute ${
+                isMobile ? 'top-[70px]' : 'top-[50px]'
+              } right-1/2 transform translate-x-1/2 rounded-full shadow-2xl`}
               src={imageURL}
               alt="product"
-              width={260}
+              width={isMobile ? 200 : 260}
               height={260}
               loading="lazy"
               onLoad={() => setLoadingImage(false)}

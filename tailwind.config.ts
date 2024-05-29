@@ -41,6 +41,7 @@ const config: Config = {
           100: '#ededed',
         },
         red: {
+          50: '#A82825',
           100: '#FA4A0C',
         },
       },
