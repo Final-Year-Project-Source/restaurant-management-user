@@ -23,7 +23,7 @@ const Feedback = () => {
   const handleSubmitFeedBackButton = () => {
     setLoading(true);
     const newFeedback = {
-      bill_id: bill_id,
+      bill: bill_id,
       comment: comment.trim(),
       stars: valueRating,
     };
