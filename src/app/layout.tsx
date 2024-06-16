@@ -10,7 +10,7 @@ import { open_sans } from '@/utils/fontUtils';
 import Provider from './Provider';
 
 export const metadata: Metadata = {
-  title: 'Bella Onoje User',
+  title: 'Bella Onoje',
   description: 'App',
 };
 
