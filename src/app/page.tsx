@@ -63,7 +63,7 @@ export default function LandingPage() {
         <div className="w-full h-2/3 relative">
           <div className="flex flex-col z-20 absolute top-[10%] right-1/2 transform translate-x-1/2 items-center justify-center">
             <span className="text-white font-bold text-[40px] whitespace-nowrap">Why stay hungry when</span>
-            <span className="text-white font-bold text-[40px] whitespace-nowrap">you can order form Bella Onojie</span>
+            <span className="text-white font-bold text-[40px] whitespace-nowrap">you can order from Bella Onojie</span>
           </div>
 
           <Image priority src={`/assets/images/landing-page.png`} alt="landing-page" fill className="z-10" />
