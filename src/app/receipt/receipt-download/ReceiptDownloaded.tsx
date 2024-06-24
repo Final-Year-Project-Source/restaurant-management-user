@@ -16,7 +16,7 @@ const ReceiptDownLoadedImage = ({ className, bill }: { className?: string; bill:
   const discount_text = discount
     ? discount.type === 'FIXED_AMOUNT'
       ? `${discount?.value} vnd`
-      : `${discount?.value}%`
+      : `${formatPrice(discount?.value)}%`
     : null;
   if (bill?.orders.length > 0) {
     for (const order of bill?.orders) {
