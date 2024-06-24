@@ -33,7 +33,7 @@ const ReceiptDownLoad = () => {
       const maxAttempts = 10;
       while (dataUrl.length < minDataLength && i < maxAttempts) {
         try {
-          dataUrl = await toPng(receiptPage, { backgroundColor: '#f1eee8', includeQueryParams: true });
+          dataUrl = await toPng(receiptPage, { backgroundColor: '#fff', includeQueryParams: true, cacheBust: true });
         } catch (error) {
           setDownloading(false);
           break;
