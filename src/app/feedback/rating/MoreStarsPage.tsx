@@ -37,20 +37,20 @@ const MoreStarsPage = ({ comment, customerName }: { comment: string; customerNam
         Review us on Google, Tripadvisor, or Wongnai
       </div>
       <div className="flex space-x-[20px] items-center justify-center mb-[30px]">
-        <Link target="_blank" className="cursor-pointer" href="https://g.page/r/CRr-1gtSxRZMEBM/review">
+        <Link target="_blank" className="cursor-pointer" href="https://g.page/r/CRr-1gtSxRZMEBMs/review">
           <GoogleIcon />
         </Link>
         <Link
           target="_blank"
           className="cursor-pointer"
-          href="https://www.tripadvisor.com/UserReviewEdit-g293916-d21373705-Yellow_Lane-Bangkok.html"
+          href="https://www.tripadvisor.com/UserReviewEdit-g293916-d21373705-bella-olonje.html"
         >
           <TrapadvisorIcon />
         </Link>
         <Link
           target="_blank"
           className="cursor-pointer"
-          href="https://www.wongnai.com/restaurants/662304hK-yellow-lane-cafe-ari"
+          href="https://www.wongnai.com/662304hKh-bella-olonje/restaurants"
         >
           <WongnaiIcon />
         </Link>
