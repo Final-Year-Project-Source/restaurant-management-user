@@ -1,6 +1,7 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   // output: 'export',
+  trailingSlash: true,
   webpack(config, { dev, isServer }) {
     if (!dev) {
       config.devtool = false;
