@@ -1,0 +1,20 @@
+{
+  "/_not-found": "app/_not-found.js",
+  "/basket/page": "app/basket/page.js",
+  "/confirmation/page": "app/confirmation/page.js",
+  "/feedback/page": "app/feedback/page.js",
+  "/favicon.ico/route": "app/favicon.ico/route.js",
+  "/feedback/rating/page": "app/feedback/rating/page.js",
+  "/feedback/rating/thank-you/page": "app/feedback/rating/thank-you/page.js",
+  "/forgot-password/page": "app/forgot-password/page.js",
+  "/login/page": "app/login/page.js",
+  "/menu/page": "app/menu/page.js",
+  "/page": "app/page.js",
+  "/product/page": "app/product/page.js",
+  "/receipt/page": "app/receipt/page.js",
+  "/receipt/receipt-download/page": "app/receipt/receipt-download/page.js",
+  "/register/page": "app/register/page.js",
+  "/request-tax-invoice/page": "app/request-tax-invoice/page.js",
+  "/setting/page": "app/setting/page.js",
+  "/ui-components/page": "app/ui-components/page.js"
+}
